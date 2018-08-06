@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme">#03A9F4</color>
+    <color name="theme_pressed">#44a7d4</color>
+    <!--文字-->
+    <!--背景色-->
+    <color name="transparent">#00000000</color>
+    <color name="select">#ff595f</color>
+    <color name="red">#f9382a</color>
+    <color name="disable">#dedede</color>
+    <color name="normal">#2000</color>
+    <color name="themes">#a66adc6c</color>
+    <color name="theme_no_internet">#f4fcff</color>
+    <color name="hint_theme">#5090AA</color>
+    <color name="line">#dbdbdb</color>
+    <color name="dark_line">#5b5b5b</color>
+    <color name="sign">#ffdb80</color>
+
+    <color name="white_255">#ffffff</color>
+    <color name="white_90">#efff</color>
+    <color name="white_15">#2fff</color><!--纯白-->
+    <color name="white_30">#4fff</color><!--纯白-->
+    <color name="white_50">#8fff</color><!--纯白-->
+
+    <color name="black_255">#000</color>
+    <color name="black_90">#e000</color>
+    <color name="black_50">#8000</color>
+    <color name="black_30">#4000</color>
+    <color name="black_15">#2000</color>
+    <color name="grey">#efefef</color>
+
+    <color name="text_color">#484848</color>
+    <color name="text_hint">#c7c7cd</color>
+    <color name="text_light">#E3E3E5</color>
+    <color name="text_black">#484848</color>
+    <color name="text_deep">#686868</color>
+    <color name="text_dark">#878787</color>
+    <color name="text_grey">#999999</color>
+    <color name="text_green">#99e288</color>
+
+    <color name="bg_grey">#F9F9F9</color>
+    <color name="text_bottom_select">#CCCCCC</color>
+    <color name="line_grey">#D3D3D3</color>
+    <color name="green">#3ddd62</color>
+    <color name="change_chat_status">#21CC17</color>
+    <color name="blue">#007aff</color>
+    <color name="drawbrilliant">#ffcc49</color>
+    <color name="recharge">#3ddd62</color>
+    <color name="alipay_color">#00a0e9</color>
+    <color name="wechat_color">#41b035</color>
+    <color name="homepage_color">#484848</color>
+    <color name="point">#80ADDFF5</color>
+    <color name="point_white">#80ffffff</color>
+    <color name="card_shape">#eeeeee</color>
+    <color name="finish">#767676</color>
+    <color name="popup_window">#80000000</color>
+    <color name="theme_bgs">#EEF8FC</color>
+    <color name="while_most_color">#e4e4e4</color>
+</resources>

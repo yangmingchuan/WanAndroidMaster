@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">WanAndroidMaster</string>
+    <string name="title_home">首页</string>
+    <string name="title_system">体系</string>
+    <string name="title_demo">项目</string>
+    <string name="title_mine">我的</string>
+
+    <string name="main_menu_hot">最热</string>
+    <string name="main_menu_seach">搜索</string>
+
+    <string name="jump_to_main">跳过</string>
+    <string name="main_title">玩Android</string>
+    <string name="home_pager">首页</string>
+    <string name="knowledge_hierarchy">知识体系</string>
+    <string name="tab_project">项目</string>
+    <string name="tab_mine">我的</string>
+    <string name="data_loading">加载中...</string>
+    <string name="data_load_error">加载失败,请重试~</string>
+    <string name="exit_system">再按一次退出</string>
+    <string name="share_view">shareView</string>
+    <string name="project">项目</string>
+    <string name="hot">热门</string>
+    <string name="reload_content">重新加载</string>
+    <string name="share_title">分享</string>
+    <string name="like_title">收藏</string>
+    <string name="already_collect_title">已收藏</string>
+    <string name="browser_title">使用系统浏览器打开</string>
+    <string name="load_more_no_data">没有更多数据了~</string>
+    <string name="no_more_data">暂时还没有数据~</string>
+    <string name="please_enter_username">请输入用户名</string>
+    <string name="please_enter_password">请输入密码</string>
+    <string name="please_reenter_password">请再次输入密码</string>
+    <string name="register">注 册</string>
+    <string name="no_account_register">还没账号?点此注册</string>
+    <string name="login">登录</string>
+    <string name="click_head_login">点击头像登录</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="my_label">我的书签</string>
+    <string name="about_us">关于我们</string>
+    <string name="logout">退出登录</string>
+    <string name="logout_sure">确定要退出登录吗?</string>
+    <string name="clear_history">清空历史记录</string>
+    <string name="delete_history_sure">确定要删除历史记录吗?</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="hot_search">热搜</string>
+    <string name="search_history">搜索历史</string>
+    <string name="clear">清空</string>
+    <string name="search_title">Search</string>
+    <string name="input_search_content">输入你想查询的内容..</string>
+    <string name="hot_address">常用网站</string>
+    <string name="username_incorrect">用户名或密码长度必须大于6位</string>
+    <string name="password_incorrect">两次输入的密码不一致</string>
+    <string name="register_ok">注册成功,请您登陆</string>
+    <string name="auto_login_ok">自动登陆成功</string>
+    <string name="login_ok">登陆成功</string>
+    <string name="login_err">登陆失败</string>
+    <string name="logout_ok">登出成功</string>
+    <string name="please_login">请先登录</string>
+    <string name="collect_success">收藏成功</string>
+    <string name="collect_fail">收藏失败</string>
+    <string name="cancel_collect_success">取消收藏成功</string>
+    <string name="cancel_collect_fail">取消收藏失败</string>
+    <string name="about_content"><![CDATA[
+        <h2>网站内容</h2>
+        <p>\t\t本网站每天新增20~30篇优质文章，并加入到现有分类中，力求整理出一份优质而又详尽的知识体系，闲暇时间不妨上来学习下知识；除此以外，并为大家提供平时开发过程中常用的工具以及常用的网址导航。</p>
+        <p>\t\t当然这只是我们目前的功能，未来我们将提供更多更加便捷的功能…</p>
+        <p>\t\t如果您有任何好的建议：</p>
+            <br/>\t\t\t\t关于网站排版
+            <br/>\t\t\t\t关于新增常用网址以及工具
+            <br/>\t\t\t\t未来你希望增加的功能等
+        <p>\t\t可以在 <a href="https://github.com/hongyangAndroid/wanandroid" target="_blank">https://github.com/hongyangAndroid/xueandroid</a> 项目中以issue的形式提出，我将及时跟进。</p>
+        <p>\t\t如果您希望长期关注本站，可以加入我们的QQ群：<b>591683946</b></p>
+        <h2>源码位置</h2>
+        <p>\t\t本软件开源，如果你发现任何错误，不要犹豫，马上点击<a href="https://github.com/sheajin/WanAndroid" target="_blank">GitHub</a>，在上面发起<b>issue</b>或者提交<b>pull request</b>。</p>
+    ]]></string>
+</resources>
