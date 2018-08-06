@@ -1,11 +1,16 @@
 package cn.white.ymc.wanandroidmaster.ui.fragment.home;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -55,16 +60,40 @@ public class HomeFragment extends BaseFragment {
      */
     @Override
     protected void initData() {
-
+        setRefresh();
+        articleList = new ArrayList<>();
+        linkList = new ArrayList<>();
+        imageList = new ArrayList<>();
+        titleList = new ArrayList<>();
     }
 
     /**
-     *  初始化 ui
+     * 初始化 ui
      */
     @Override
     protected void initUI() {
         super.initUI();
 
+    }
+
+    /**
+     * SmartRefreshLayout刷新加载
+     */
+    private void setRefresh() {
+        normalView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                presenter.autoRefresh();
+                refreshLayout.finishRefresh(1000);
+            }
+        });
+        normalView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                presenter.loadMore();
+                refreshLayout.finishLoadMore(1000);
+            }
+        });
     }
 
 }

@@ -1,6 +1,7 @@
 package cn.white.ymc.wanandroidmaster.ui.fragment.home;
 
 import java.util.List;
+
 import cn.white.ymc.wanandroidmaster.base.contract.BasePre;
 import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
@@ -18,7 +19,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 
 public class HomeContract {
 
-    interface View extends BaseView{
+    interface View extends BaseView {
 
         void getHomepageListOk(HomePageArticleBean dataBean, boolean isRefresh);
 
@@ -30,8 +31,16 @@ public class HomeContract {
 
     }
 
-    interface Per extends BasePre<View>{
+    interface Per extends BasePre<View> {
+        /**
+         * 刷新 列表
+         */
+        void autoRefresh();
 
+        /**
+         * 加載更多
+         */
+        void loadMore();
     }
 
 }

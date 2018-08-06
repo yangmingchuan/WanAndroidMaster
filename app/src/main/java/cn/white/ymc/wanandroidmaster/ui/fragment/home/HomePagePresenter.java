@@ -12,8 +12,16 @@ import cn.white.ymc.wanandroidmaster.base.contract.BasePresenter;
  * @QQ:745612618
  */
 
-public class HomePagePresenter extends BasePresenter<HomeContract.View> {
+public class HomePagePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Per {
 
 
+    @Override
+    public void autoRefresh() {
 
+    }
+
+    @Override
+    public void loadMore() {
+
+    }
 }
