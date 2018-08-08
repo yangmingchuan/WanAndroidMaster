@@ -41,6 +41,17 @@ public class HomeContract {
          * 加載更多
          */
         void loadMore();
+
+        /**
+         * 获取 轮播信息
+         */
+        void getBanner();
+
+        /**
+         * 获取 首页 页数数据
+         * @param page
+         */
+        void  getHomepageListData(int page);
     }
 
 }

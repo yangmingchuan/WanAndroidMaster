@@ -24,4 +24,14 @@ public class HomePagePresenter extends BasePresenter<HomeContract.View> implemen
     public void loadMore() {
 
     }
+
+    @Override
+    public void getBanner() {
+
+    }
+
+    @Override
+    public void getHomepageListData(int page) {
+
+    }
 }

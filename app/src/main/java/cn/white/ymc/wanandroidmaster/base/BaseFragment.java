@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ldoublem.loadingviewlib.LVChromeLogo;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.white.ymc.wanandroidmaster.R;
@@ -45,6 +47,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
     private View mErrorView;
     private View mLoadingView;
     private View mEmptyView;
+    private LVChromeLogo lvChromeLogo;
     private ViewGroup mNormalView;
     /**
      * 当前状态
@@ -113,6 +116,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         View.inflate(activity, R.layout.view_error, parent);
         View.inflate(activity, R.layout.view_empty, parent);
         mLoadingView = parent.findViewById(R.id.loading_group);
+        lvChromeLogo = mLoadingView.findViewById(R.id.lv_load);
         mErrorView = parent.findViewById(R.id.error_group);
         mEmptyView = parent.findViewById(R.id.empty_group);
 
@@ -166,6 +170,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         hideCurrentView();
         currentState = LOADING_STATE;
         mLoadingView.setVisibility(View.VISIBLE);
+        lvChromeLogo.startAnim();
     }
 
     @Override
@@ -192,6 +197,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
                 mNormalView.setVisibility(View.GONE);
                 break;
             case LOADING_STATE:
+                lvChromeLogo.stopAnim();
                 mLoadingView.setVisibility(View.GONE);
                 break;
             case ERROR_STATE:

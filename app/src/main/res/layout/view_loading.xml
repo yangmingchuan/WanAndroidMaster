@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <com.ldoublem.loadingviewlib.LVChromeLogo
+            android:id="@+id/lv_load"
             android:layout_width="@dimen/dp_60"
             android:layout_height="@dimen/dp_60" />
 
