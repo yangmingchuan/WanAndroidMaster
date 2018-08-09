@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui;
+package cn.white.ymc.wanandroidmaster.ui.home;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;

@@ -8,7 +8,7 @@ import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
-import cn.white.ymc.wanandroidmaster.ui.HomeActivity;
+import cn.white.ymc.wanandroidmaster.ui.home.HomeActivity;
 import cn.white.ymc.wanandroidmaster.ui.register.RegisterActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;

@@ -28,6 +28,7 @@ import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter.HomePageAdapter;
+import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.GlideImageLoader;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
@@ -181,7 +182,6 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
      */
     @Override
     public void getBannerOk(List<BenarBean> bannerBean) {
-        showNormal();
         imageList.clear();
         titleList.clear();
         linkList.clear();
@@ -209,8 +209,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
                     Bundle bundle = new Bundle();
                     bundle.putString(ConstantUtil.BANNER_TITLE,titleList.get(position));
                     bundle.putString(ConstantUtil.BANNER_PATH,linkList.get(position));
-                    ToastUtil.show(activity,"跳转到详情界面");
-                    //JumpUtil.overlay();
+                    JumpUtil.overlay(context, HomeDetailActivity.class,bundle);
                 }
             }
         });
