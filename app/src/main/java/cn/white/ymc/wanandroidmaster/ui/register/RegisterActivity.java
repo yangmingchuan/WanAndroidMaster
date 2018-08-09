@@ -92,7 +92,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
     }
 
     @Override
-    public void showError() {
+    public void showError(String info) {
 
     }
 

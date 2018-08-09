@@ -1,10 +1,14 @@
 package cn.white.ymc.wanandroidmaster.ui.fragment.home;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -12,16 +16,26 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter.HomePageAdapter;
+import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.GlideImageLoader;
+import cn.white.ymc.wanandroidmaster.util.JumpUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
 /**
  * 首页 fragment 界面
+ *
  *
  * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home
  * @fileName: HomeFragment
@@ -31,7 +45,7 @@ import cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter.HomePageAdapter;
  */
 
 public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnItemClickListener,
-        BaseQuickAdapter.OnItemChildClickListener {
+        BaseQuickAdapter.OnItemChildClickListener ,HomeContract.View {
 
     @BindView(R.id.rv)
     RecyclerView rv;
@@ -67,7 +81,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
         linkList = new ArrayList<>();
         imageList = new ArrayList<>();
         titleList = new ArrayList<>();
-        presenter = new HomePagePresenter();
+        presenter = new HomePagePresenter(this);
         presenter.getBanner();
         presenter.getHomepageListData(0);
         mAdapter = new HomePageAdapter(R.layout.item_homepage, articleList);
@@ -112,7 +126,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     }
 
     /**
-     * 点击itme 事件
+     * 点击item 事件
      * @param adapter
      * @param view
      * @param position
@@ -132,5 +146,89 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
 
+    }
+
+    /**
+     * 获取 首页列表成功
+     * @param dataBean
+     * @param isRefresh
+     */
+    @Override
+    public void getHomepageListOk(HomePageArticleBean dataBean, boolean isRefresh) {
+        showNormal();
+        // 是 刷新adapter 则 添加数据到adapter
+        if(isRefresh){
+            articleList = dataBean.getDatas();
+            mAdapter.replaceData(articleList);
+        }else{
+            articleList.addAll(dataBean.getDatas());
+            mAdapter.addData(dataBean.getDatas());
+        }
+    }
+
+    /**
+     * 获取首页信息失败
+     * @param info
+     */
+    @Override
+    public void getHomepageListErr(String info) {
+        showError(info);
+    }
+
+    /**
+     * 获取轮播成功
+     * @param bannerBean
+     */
+    @Override
+    public void getBannerOk(List<BenarBean> bannerBean) {
+        showNormal();
+        imageList.clear();
+        titleList.clear();
+        linkList.clear();
+        for(BenarBean benarBean:bannerBean){
+            imageList.add(benarBean.getImagePath());
+            titleList.add(benarBean.getTitle());
+            linkList.add(benarBean.getUrl());
+        }
+        if(!activity.isDestroyed()){
+            // banner git 地址 https://github.com/youth5201314/banner
+            banner.setImageLoader(new GlideImageLoader())
+                    .setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
+                    .setImages(imageList)
+                    .setBannerAnimation(Transformer.Accordion)
+                    .setBannerTitles(titleList)
+                    .isAutoPlay(true)
+                    .setDelayTime(5000)
+                    .setIndicatorGravity(BannerConfig.RIGHT)
+                    .start();
+        }
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                if(!TextUtils.isEmpty(linkList.get(position))){
+                    Bundle bundle = new Bundle();
+                    bundle.putString(ConstantUtil.BANNER_TITLE,titleList.get(position));
+                    bundle.putString(ConstantUtil.BANNER_PATH,linkList.get(position));
+                    ToastUtil.show(activity,"跳转到详情界面");
+                    //JumpUtil.overlay();
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取轮播失败
+     * @param info
+     */
+    @Override
+    public void getBannerErr(String info) {
+        showError(info);
+    }
+
+    @Override
+    public void reload() {
+        showLoading();
+        presenter.getBanner();
+        presenter.autoRefresh();
     }
 }

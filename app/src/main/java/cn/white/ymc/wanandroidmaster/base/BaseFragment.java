@@ -1,6 +1,7 @@
 package cn.white.ymc.wanandroidmaster.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ldoublem.loadingviewlib.LVChromeLogo;
 
@@ -49,6 +51,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
     private View mEmptyView;
     private LVChromeLogo lvChromeLogo;
     private ViewGroup mNormalView;
+    private TextView tvErrMsg;
     /**
      * 当前状态
      */
@@ -60,11 +63,6 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         return inflater.inflate(getLayoutResID(), container,false);
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.activity = activity;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -73,6 +71,8 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         activity = getActivity();
         context = MyApplication.getInstance();
         bind = ButterKnife.bind(this, view);
+        initUI();
+        initData();
     }
 
     /**
@@ -90,6 +90,8 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         bind.unbind();
         super.onDestroy();
     }
+
+
 
     /**
      * 获取 布局信息
@@ -119,7 +121,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         lvChromeLogo = mLoadingView.findViewById(R.id.lv_load);
         mErrorView = parent.findViewById(R.id.error_group);
         mEmptyView = parent.findViewById(R.id.empty_group);
-
+        tvErrMsg = mEmptyView.findViewById(R.id.tv_err_msg);
         mErrorView.setVisibility(View.GONE);
         mEmptyView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
@@ -153,13 +155,14 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
     }
 
     @Override
-    public void showError() {
+    public void showError(String err) {
         if (currentState == ERROR_STATE) {
             return;
         }
         hideCurrentView();
         currentState = ERROR_STATE;
         mErrorView.setVisibility(View.VISIBLE);
+        tvErrMsg.setText(err);
     }
 
     @Override

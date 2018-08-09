@@ -1,6 +1,9 @@
 package cn.white.ymc.wanandroidmaster.model;
 
+import java.util.List;
+
 import cn.white.ymc.wanandroidmaster.data.BaseResp;
+import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import retrofit2.http.Field;
@@ -42,4 +45,10 @@ public interface ApiService {
     @FormUrlEncoded
     Observable<BaseResp<UserInfo>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
+
+    /**
+     * banner
+     */
+    @GET("banner/json")
+    Observable<BaseResp<List<BenarBean>>>getBannerList();
 }

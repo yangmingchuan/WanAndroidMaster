@@ -107,7 +107,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
     }
 
     @Override
-    public void showError() {
+    public void showError(String info) {
 
     }
 

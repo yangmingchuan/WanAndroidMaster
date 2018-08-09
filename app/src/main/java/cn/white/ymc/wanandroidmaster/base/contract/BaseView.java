@@ -20,7 +20,7 @@ public interface BaseView {
     /**
      * Show error
      */
-    void showError();
+    void showError(String err);
 
     /**
      * Show loading

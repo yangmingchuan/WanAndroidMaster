@@ -27,7 +27,6 @@ import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
  * 主界面 activity
  */
 
-
 public class HomeActivity extends BaseActivity {
     @BindView(R.id.toolbar_common)
     Toolbar toolbarCommon;

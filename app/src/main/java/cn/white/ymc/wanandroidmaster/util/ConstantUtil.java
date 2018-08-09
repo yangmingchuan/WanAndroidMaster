@@ -47,4 +47,10 @@ public class ConstantUtil {
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
     public static final String ISLOGIN = "is_login";
+
+    /**
+     * 首页 banner key
+     */
+    public static final String BANNER_TITLE = "banner_title";
+    public static final String BANNER_PATH = "banner_path";
 }
