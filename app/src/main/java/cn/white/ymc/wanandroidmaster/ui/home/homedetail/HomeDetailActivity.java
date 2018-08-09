@@ -46,6 +46,7 @@ public class HomeDetailActivity extends BaseActivity {
             detailLink = bundle.getString(ConstantUtil.HOME_DETAIL_PATH);
             detailId = bundle.getInt(ConstantUtil.HOME_DETAIL_ID, ConstantUtil.REQUEST_ERROR);
             isCollect = bundle.getBoolean(ConstantUtil.HOME_DETAIL_IS_COLLECT);
+
         }
 
     }
