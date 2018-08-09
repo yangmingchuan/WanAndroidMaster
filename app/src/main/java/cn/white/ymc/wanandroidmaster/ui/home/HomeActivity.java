@@ -1,5 +1,6 @@
 package cn.white.ymc.wanandroidmaster.ui.home;
 
+import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -108,6 +109,7 @@ public class HomeActivity extends BaseActivity {
         // 将item 设置为不移动
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        floatButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.theme)));
     }
 
     /**

@@ -51,6 +51,8 @@ public class ConstantUtil {
     /**
      * 首页 banner key
      */
-    public static final String BANNER_TITLE = "banner_title";
-    public static final String BANNER_PATH = "banner_path";
+    public static final String HOME_DETAIL_TITLE = "banner_title";
+    public static final String HOME_DETAIL_PATH = "banner_path";
+    public static final String HOME_DETAIL_ID = "banner_id";
+    public static final String HOME_DETAIL_IS_COLLECT = "banner_iscollect";
 }

@@ -1,14 +1,16 @@
 package cn.white.ymc.wanandroidmaster.ui.fragment.home;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -32,7 +34,6 @@ import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.GlideImageLoader;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
-import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
 /**
  * 首页 fragment 界面
@@ -132,9 +133,17 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
      * @param view
      * @param position
      */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+        HomePageArticleBean.DatasBean bean = (HomePageArticleBean.DatasBean) adapter.getData().get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt(ConstantUtil.HOME_DETAIL_ID,bean.getId());
+        bundle.putString(ConstantUtil.HOME_DETAIL_PATH,bean.getLink());
+        bundle.putString(ConstantUtil.HOME_DETAIL_TITLE,bean.getTitle());
+        bundle.putBoolean(ConstantUtil.HOME_DETAIL_IS_COLLECT,bean.isCollect());
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.share_view));
+        startActivity(new Intent(activity, HomeDetailActivity.class).putExtras(bundle), options.toBundle());
     }
 
     /**
@@ -207,8 +216,8 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
             public void OnBannerClick(int position) {
                 if(!TextUtils.isEmpty(linkList.get(position))){
                     Bundle bundle = new Bundle();
-                    bundle.putString(ConstantUtil.BANNER_TITLE,titleList.get(position));
-                    bundle.putString(ConstantUtil.BANNER_PATH,linkList.get(position));
+                    bundle.putString(ConstantUtil.HOME_DETAIL_TITLE,titleList.get(position));
+                    bundle.putString(ConstantUtil.HOME_DETAIL_PATH,linkList.get(position));
                     JumpUtil.overlay(context, HomeDetailActivity.class,bundle);
                 }
             }

@@ -16,7 +16,7 @@
 
     <!-- 设置 -->
     <style name="AppTheme_toolbar" parent="AppTheme">
-        <item name="android:layout_weight">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_50</item>
         <item name="android:textSize">@dimen/sp_15</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>

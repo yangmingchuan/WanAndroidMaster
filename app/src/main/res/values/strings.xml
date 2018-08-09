@@ -17,7 +17,7 @@
     <string name="data_loading">加载中...</string>
     <string name="data_load_error">加载失败,请重试~</string>
     <string name="exit_system">再按一次退出</string>
-    <string name="share_view">shareView</string>
+    <string name="share_view">WebView</string>
     <string name="project">项目</string>
     <string name="hot">热门</string>
     <string name="reload_content">重新加载</string>
@@ -61,6 +61,8 @@
     <string name="collect_fail">收藏失败</string>
     <string name="cancel_collect_success">取消收藏成功</string>
     <string name="cancel_collect_fail">取消收藏失败</string>
+    <string name="float_button" >cn.white.ymc.wanandroidmaster.util.behavior.FabScrollBehavior</string>
+    <string name="bottom_bervaior">cn.white.ymc.wanandroidmaster.util.behavior.BottomNavigationBehavior</string>
     <string name="about_content"><![CDATA[
         <h2>网站内容</h2>
         <p>\t\t本网站每天新增20~30篇优质文章，并加入到现有分类中，力求整理出一份优质而又详尽的知识体系，闲暇时间不妨上来学习下知识；除此以外，并为大家提供平时开发过程中常用的工具以及常用的网址导航。</p>
