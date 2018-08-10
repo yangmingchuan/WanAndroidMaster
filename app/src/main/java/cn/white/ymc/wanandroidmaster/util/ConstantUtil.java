@@ -48,6 +48,9 @@ public class ConstantUtil {
     public static final String PASSWORD = "password";
     public static final String ISLOGIN = "is_login";
 
+    public static final boolean TRUE = true;
+    public static final boolean FALSE = false;
+
     /**
      * 首页 banner key
      */

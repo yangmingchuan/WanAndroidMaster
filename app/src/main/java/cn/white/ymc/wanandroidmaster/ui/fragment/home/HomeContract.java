@@ -19,7 +19,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 
 public class HomeContract {
 
-    interface View extends BaseView {
+    public interface View extends BaseView {
 
         void getHomepageListOk(HomePageArticleBean dataBean, boolean isRefresh);
 
@@ -31,7 +31,7 @@ public class HomeContract {
 
     }
 
-    interface Per extends BasePre<View> {
+    public interface Per extends BasePre<View> {
         /**
          * 刷新 列表
          */

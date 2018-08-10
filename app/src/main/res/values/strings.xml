@@ -17,14 +17,13 @@
     <string name="data_loading">加载中...</string>
     <string name="data_load_error">加载失败,请重试~</string>
     <string name="exit_system">再按一次退出</string>
-    <string name="share_view">WebView</string>
+    <string name="web_view">WebView</string>
     <string name="project">项目</string>
     <string name="hot">热门</string>
     <string name="reload_content">重新加载</string>
     <string name="share_title">分享</string>
     <string name="like_title">收藏</string>
     <string name="already_collect_title">已收藏</string>
-    <string name="browser_title">使用系统浏览器打开</string>
     <string name="load_more_no_data">没有更多数据了~</string>
     <string name="no_more_data">暂时还没有数据~</string>
     <string name="please_enter_username">请输入用户名</string>

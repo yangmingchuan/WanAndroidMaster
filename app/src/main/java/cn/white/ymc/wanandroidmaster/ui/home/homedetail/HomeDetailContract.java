@@ -15,12 +15,30 @@ import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 
 public class HomeDetailContract {
 
-    interface view extends BaseView{
+    public interface view extends BaseView{
 
+        /**
+         * 收藏 成功 失败
+         * @param info
+         */
+        void collectArticleOK(String info);
+
+        void collectArticleErr(String info);
+
+        /**
+         * 取消收藏 成功 失败
+         * @param info
+         */
+        void cancelCollectArticleOK(String info);
+
+        void cancelCollectArticleErr(String info);
     }
 
-    interface presenter extends BasePre<view>{
+    public interface presenter extends BasePre<view>{
 
+        void collectArticle(int id);
+
+        void cancelCollectArticle(int id);
     }
 
 }

@@ -109,6 +109,7 @@ public class HomeActivity extends BaseActivity {
         // 将item 设置为不移动
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        // 设置为蓝色背景
         floatButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.theme)));
     }
 

@@ -8,9 +8,26 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Theme Style-->
+    <style name="ThemeTitleTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/theme</item>
+        <item name="colorPrimaryDark">@color/theme</item>
+        <item name="colorPrimary">@color/theme</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">@color/black_255</item>
+        <!--<item name="android:windowAnimationStyle">@style/windowAnimation</item>-->
+        <!--<item name="android:windowContentTransitions">true</item>-->
+        <item name="android:itemBackground">@color/white_255</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <!-- 设置没有actionbar 和title  不然getsupperActionBar 报错-->
     <style name="WAndroidAppTheme" parent="AppTheme">
-        <item name="windowActionBar" >false</item>
+        <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 

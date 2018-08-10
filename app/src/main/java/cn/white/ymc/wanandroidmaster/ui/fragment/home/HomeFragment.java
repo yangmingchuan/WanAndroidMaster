@@ -142,7 +142,8 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
         bundle.putString(ConstantUtil.HOME_DETAIL_PATH,bean.getLink());
         bundle.putString(ConstantUtil.HOME_DETAIL_TITLE,bean.getTitle());
         bundle.putBoolean(ConstantUtil.HOME_DETAIL_IS_COLLECT,bean.isCollect());
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.share_view));
+        // webview 和跳转的界面布局 transitionName 一定要相同
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
         startActivity(new Intent(activity, HomeDetailActivity.class).putExtras(bundle), options.toBundle());
     }
 
