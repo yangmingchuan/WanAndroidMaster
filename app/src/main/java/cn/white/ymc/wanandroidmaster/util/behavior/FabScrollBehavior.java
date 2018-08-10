@@ -1,8 +1,10 @@
 package cn.white.ymc.wanandroidmaster.util.behavior;
 
+import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -17,6 +19,17 @@ import android.view.animation.LinearInterpolator;
  */
 
 public class FabScrollBehavior extends FloatingActionButton.Behavior {
+
+    /**
+     * extends FloatingActionButton.Behavior 的行为类
+     * 必须要写构造函数 不然系统无法识别
+     *
+     * @param context
+     * @param attrs
+     */
+    public FabScrollBehavior(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
     @Override
     public boolean onStartNestedScroll(final CoordinatorLayout coordinatorLayout, final FloatingActionButton child,

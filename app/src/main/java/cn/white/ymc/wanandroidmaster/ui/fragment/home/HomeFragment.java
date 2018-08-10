@@ -128,7 +128,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     }
 
     /**
-     * 点击item 事件
+     * 点击item 事件  （共享元素跳转）
      * @param adapter
      * @param view
      * @param position
