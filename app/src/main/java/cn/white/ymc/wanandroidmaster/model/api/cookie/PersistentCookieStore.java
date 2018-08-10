@@ -21,7 +21,7 @@ import okhttp3.Cookie;
 import okhttp3.HttpUrl;
 
 /**
- * cookie
+ * cookie 本地持久化存储
  * Created by lw on 2018年7月24日 10:29:15
  */
 
