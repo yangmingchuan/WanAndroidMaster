@@ -45,9 +45,9 @@ public class HttpLoggingInterceptor implements Interceptor {
 
         Log.e("jxy",
                 "发送请求: method：" + request.method()
-                        + "\nurl：" + request.url());
-//                        + "\n请求头：" + request.headers()
-//                        + "\n请求参数: " + body
+                        + "\nurl：" + request.url()
+                        + "\n请求头：" + request.headers()
+                        + "\n请求参数: " + body);
 
         long startNs = System.nanoTime();
         Response response = chain.proceed(request);
@@ -77,7 +77,7 @@ public class HttpLoggingInterceptor implements Interceptor {
         Log.e("jxy",
                 "收到响应: code:" + response.code()
                 + "\n请求url："+response.request().url()
-//                + "\n请求body：" + body
+                + "\n请求body：" + body
                         + "\nResponse: " + rBody);
 
         return response;
