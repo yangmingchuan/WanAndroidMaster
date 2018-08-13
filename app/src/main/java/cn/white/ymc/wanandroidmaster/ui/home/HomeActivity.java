@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.ui.fragment.demo.DemoFragment;
@@ -113,6 +114,33 @@ public class HomeActivity extends BaseActivity {
         floatButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.theme)));
     }
 
+    @OnClick(R.id.float_button)
+    void click(View view) {
+        switch (view.getId()) {
+            case R.id.float_button:
+                scrollToTop();
+                break;
+        }
+    }
+
+    /**
+     * 滚动置顶
+     */
+    private void scrollToTop() {
+        switch (lastIndex){
+            case 0:
+                HomeFragment homeFragment = (HomeFragment) fragmentList.get(0);
+                homeFragment.scrollToTop();
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+                default:
+                    break;
+        }
+    }
+
     /**
      * 初始化碎片
      */
@@ -156,4 +184,5 @@ public class HomeActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
