@@ -60,7 +60,7 @@
     <string name="collect_fail">收藏失败</string>
     <string name="cancel_collect_success">取消收藏成功</string>
     <string name="cancel_collect_fail">取消收藏失败</string>
-    <string name="float_button" >cn.white.ymc.wanandroidmaster.util.behavior.FabScrollBehavior</string>
+    <string name="float_button">cn.white.ymc.wanandroidmaster.util.behavior.FabScrollBehavior</string>
     <string name="bottom_bervaior">cn.white.ymc.wanandroidmaster.util.behavior.BottomNavigationBehavior</string>
     <string name="about_content"><![CDATA[
         <h2>网站内容</h2>

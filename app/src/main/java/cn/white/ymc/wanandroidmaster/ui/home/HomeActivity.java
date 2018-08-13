@@ -11,18 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
-import cn.white.ymc.wanandroidmaster.ui.fragment.demo.DemoFragment;
-import cn.white.ymc.wanandroidmaster.ui.fragment.home.HomeFragment;
-import cn.white.ymc.wanandroidmaster.ui.fragment.mine.MineFragment;
-import cn.white.ymc.wanandroidmaster.ui.fragment.system.SystemFragment;
+import cn.white.ymc.wanandroidmaster.ui.mine.MineFragment;
+import cn.white.ymc.wanandroidmaster.ui.system.SystemFragment;
+import cn.white.ymc.wanandroidmaster.ui.todo.ToDoFragment;
 import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
 
 /**
@@ -133,6 +130,8 @@ public class HomeActivity extends BaseActivity {
                 homeFragment.scrollToTop();
                 break;
             case 1:
+                SystemFragment systemFragment = (SystemFragment) fragmentList.get(1);
+                systemFragment.scrollToTop();
                 break;
             case 2:
                 break;
@@ -148,7 +147,7 @@ public class HomeActivity extends BaseActivity {
         fragmentList = new ArrayList<>();
         fragmentList.add(HomeFragment.getInstance());
         fragmentList.add(SystemFragment.getInstance());
-        fragmentList.add(DemoFragment.getInstance());
+        fragmentList.add(ToDoFragment.getInstance());
         fragmentList.add(MineFragment.getInstance());
     }
 
@@ -163,7 +162,6 @@ public class HomeActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 
     /**
      * menu 选择器

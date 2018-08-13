@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter;
+package cn.white.ymc.wanandroidmaster.ui.home.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -8,7 +8,7 @@ import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 
 /**
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.home.adapter
  * @fileName: HomePageAdaper
  * @date: 2018/8/8  14:31
  * @author: ymc

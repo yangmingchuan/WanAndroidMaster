@@ -112,7 +112,12 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
             return;
         }
         mNormalView = getView().findViewById(R.id.normal_view);
-
+        if (mNormalView == null) {
+            throw new IllegalStateException("The subclass of RootActivity must contain a View named 'mNormalView'.");
+        }
+        if (!(mNormalView.getParent() instanceof ViewGroup)) {
+            throw new IllegalStateException("mNormalView's ParentView should be a ViewGroup.");
+        }
         ViewGroup parent = (ViewGroup) mNormalView.getParent();
         View.inflate(activity, R.layout.view_loading, parent);
         View.inflate(activity, R.layout.view_error, parent);
@@ -121,11 +126,28 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         lvChromeLogo = mLoadingView.findViewById(R.id.lv_load);
         mErrorView = parent.findViewById(R.id.error_group);
         mEmptyView = parent.findViewById(R.id.empty_group);
-        tvErrMsg = mEmptyView.findViewById(R.id.tv_err_msg);
+        tvErrMsg = mErrorView.findViewById(R.id.tv_reload);
+        tvErrMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reload();
+            }
+        });
         mErrorView.setVisibility(View.GONE);
         mEmptyView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
         mNormalView.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 清空所有view
+     */
+    public void clearAllView(){
+        mErrorView.setVisibility(View.GONE);
+        mEmptyView.setVisibility(View.GONE);
+        mLoadingView.setVisibility(View.GONE);
+        mNormalView.setVisibility(View.GONE);
+        currentState = NORMAL_STATE;
     }
 
     /**
@@ -208,6 +230,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
                 break;
             case EMPTY_STATE:
                 mEmptyView.setVisibility(View.GONE);
+                break;
             default:
                 break;
         }

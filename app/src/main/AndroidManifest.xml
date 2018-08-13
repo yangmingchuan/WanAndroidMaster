@@ -33,12 +33,14 @@
         </activity>
         <activity
             android:name=".ui.SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.register.RegisterActivity" />
-        <activity android:name=".ui.home.homedetail.HomeDetailActivity"
+        <activity
+            android:name=".ui.home.homedetail.HomeDetailActivity"
             android:exported="false"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
+        <activity android:name=".ui.system.systemdetail.SystemDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.home;
+package cn.white.ymc.wanandroidmaster.ui.home;
 
 import java.util.List;
 import cn.white.ymc.wanandroidmaster.base.contract.BasePresenter;
@@ -15,7 +15,7 @@ import rx.schedulers.Schedulers;
 /**
  * 首页 presenter 层
  *
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.home
  * @fileName: HomePagePresenter
  * @date: 2018/8/6  16:41
  * @author: ymc

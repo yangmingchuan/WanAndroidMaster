@@ -1,5 +1,6 @@
 package cn.white.ymc.wanandroidmaster.data.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @QQ:745612618
  */
 
-public class SystemBean {
+public class SystemBean implements Serializable{
 
     private int courseId;
     private int id;

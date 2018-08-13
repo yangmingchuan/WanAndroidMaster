@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter;
+package cn.white.ymc.wanandroidmaster.ui.home.adapter;
 
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -14,7 +14,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 /**
  * rv 适配器
  *
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.home.adapter
  * @fileName: HomePageAdapter
  * @date: 2018/8/6  16:45
  * @author: ymc

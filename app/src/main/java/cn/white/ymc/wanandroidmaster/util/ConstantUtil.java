@@ -58,4 +58,7 @@ public class ConstantUtil {
     public static final String HOME_DETAIL_PATH = "banner_path";
     public static final String HOME_DETAIL_ID = "banner_id";
     public static final String HOME_DETAIL_IS_COLLECT = "banner_iscollect";
+
+
+    public static final String SYSTEM = "system";
 }

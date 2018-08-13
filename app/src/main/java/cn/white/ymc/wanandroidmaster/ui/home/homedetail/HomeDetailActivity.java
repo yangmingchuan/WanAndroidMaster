@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
-import android.transition.Visibility;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,14 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.just.agentweb.AgentWeb;
-import com.just.agentweb.LogUtils;
 
 import java.lang.reflect.Method;
 
 import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
-import cn.white.ymc.wanandroidmaster.ui.fragment.home.HomeContract;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;

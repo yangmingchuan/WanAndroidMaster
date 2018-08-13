@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/system_toolbar"
+            style="@style/AppTheme_toolbar"
+            android:background="@color/theme"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:titleTextColor="@color/white_255" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/system_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            app:tl_textAllCaps="false"
+            app:tl_textBold="BOTH"
+            app:tl_textsize="@dimen/sp_14" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/system_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/float_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:src="@drawable/icon_up_arrow"
+        app:borderWidth="0dp"
+        app:layout_behavior="@string/float_button" />
+
+</RelativeLayout>

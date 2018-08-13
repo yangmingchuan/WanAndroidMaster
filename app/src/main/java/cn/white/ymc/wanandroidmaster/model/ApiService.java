@@ -4,6 +4,7 @@ import java.util.List;
 import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -50,7 +51,7 @@ public interface ApiService {
     Observable<BaseResp<List<BenarBean>>>getBannerList();
 
     /**
-     *  收藏文章
+     * 收藏文章
      * @param id
      * @return
      */
@@ -64,5 +65,11 @@ public interface ApiService {
      */
     @POST("lg/uncollect_originId/{id}/json")
     Observable<BaseResp> cancelCollectArticle(@Path("id") int id);
+
+    /**
+     *  体系数据
+     */
+    @GET("tree/json")
+    Observable<BaseResp<List<SystemBean>>>getSystemList();
 
 }

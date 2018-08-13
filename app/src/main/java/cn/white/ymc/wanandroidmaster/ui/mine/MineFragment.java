@@ -1,10 +1,10 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.mine;
+package cn.white.ymc.wanandroidmaster.ui.mine;
 
 import android.support.v4.app.Fragment;
 
 
 /**
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.mine
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.mine
  * @fileName: MineFragment
  * @date: 2018/7/27  9:07
  * @author: ymc

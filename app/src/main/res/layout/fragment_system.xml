@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scwang.smartrefresh.layout.SmartRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:id="@+id/normal_view"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
 
-    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/normal_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_system"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey" />
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <com.scwang.smartrefresh.header.TaurusHeader
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey" />
 
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</android.support.constraint.ConstraintLayout>

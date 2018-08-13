@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.home;
+package cn.white.ymc.wanandroidmaster.ui.home;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -29,8 +29,7 @@ import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
-import cn.white.ymc.wanandroidmaster.ui.fragment.home.adapter.HomePageAdapter;
-import cn.white.ymc.wanandroidmaster.ui.home.HomeActivity;
+import cn.white.ymc.wanandroidmaster.ui.home.adapter.HomePageAdapter;
 import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.GlideImageLoader;
@@ -39,7 +38,7 @@ import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 /**
  * 首页 fragment 界面
  *
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.home
  * @fileName: HomeFragment
  * @date: 2018/7/26  9:10
  * @author: ymc

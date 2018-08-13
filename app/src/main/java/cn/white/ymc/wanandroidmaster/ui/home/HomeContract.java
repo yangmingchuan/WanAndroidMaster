@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.fragment.home;
+package cn.white.ymc.wanandroidmaster.ui.home;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 /**
  * 首页 契约类
  *
- * @packageName: cn.white.ymc.wanandroidmaster.ui.fragment.home
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.home
  * @fileName: HomeContract
  * @date: 2018/8/3  17:36
  * @author: ymc
