@@ -37,7 +37,7 @@ import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
  */
 
 public class SystemFragment extends BaseFragment implements SystemContract.View,
-        SystemAdapter.OnItemChildClickListener {
+        SystemAdapter.OnItemClickListener {
     @BindView(R.id.rv_system)
     RecyclerView rvSystem;
     @BindView(R.id.normal_view)
@@ -62,7 +62,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
         systemBeanList = new ArrayList<>();
         madapter = new SystemAdapter(R.layout.item_system,systemBeanList);
         presenter.getKnowledgeList();
-        madapter.setOnItemChildClickListener(this);
+        madapter.setOnItemClickListener(this);
         rvSystem.setAdapter(madapter);
     }
 
@@ -99,21 +99,6 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
         });
     }
 
-    /**
-     * item 点击事件
-     * @param adapter
-     * @param view
-     * @param position
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
-        Intent intent = new Intent(activity, SystemDetailActivity.class);
-        intent.putExtra(ConstantUtil.SYSTEM,madapter.getData().get(position));
-        startActivity(intent,options.toBundle());
-    }
-
     @Override
     public void reload() {
         showLoading();
@@ -125,5 +110,20 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
      */
     public void scrollToTop(){
         rvSystem.smoothScrollToPosition(0);
+    }
+
+    /**
+     * item 点击事件
+     * @param adapter
+     * @param view
+     * @param position
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
+        Intent intent = new Intent(activity, SystemDetailActivity.class);
+        intent.putExtra(ConstantUtil.SYSTEM,madapter.getData().get(position));
+        startActivity(intent,options.toBundle());
     }
 }
