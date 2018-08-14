@@ -1,7 +1,6 @@
 package cn.white.ymc.wanandroidmaster.ui.system.systemdetail;
 
 import android.os.Bundle;
-
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 

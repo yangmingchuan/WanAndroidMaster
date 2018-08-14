@@ -36,6 +36,7 @@ public class SystemDetailActivity extends BaseActivity {
 
     private List<String> titles;
     private List<Fragment> fragments;
+    private SystemDetailListAdapter adapter;
 
     @Override
     protected int getLayoutId() {
@@ -57,6 +58,7 @@ public class SystemDetailActivity extends BaseActivity {
     protected void initData() {
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
+        adapter = new SystemDetailListAdapter(getSupportFragmentManager(),fragments);
         getSystemBundleData();
     }
 
@@ -73,6 +75,9 @@ public class SystemDetailActivity extends BaseActivity {
                 fragments.add(SystemDetailListFragment.getInstance(childrenBean.getId()));
             }
         }
+        systemViewpager.setAdapter(adapter);
+        systemTabLayout.setViewPager(systemViewpager,titles.toArray(new String[titles.size()]));
+        adapter.notifyDataSetChanged();
     }
 
 

@@ -1,5 +1,6 @@
 package cn.white.ymc.wanandroidmaster.ui.system;
 
+import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
@@ -14,7 +15,6 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +37,7 @@ import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
  */
 
 public class SystemFragment extends BaseFragment implements SystemContract.View,
-        BaseQuickAdapter.OnItemChildClickListener {
+        SystemAdapter.OnItemChildClickListener {
     @BindView(R.id.rv_system)
     RecyclerView rvSystem;
     @BindView(R.id.normal_view)
@@ -45,7 +45,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
 
     private List<SystemBean> systemBeanList;
     private SystemPresenter presenter;
-    private SystemAdapter adapter;
+    private SystemAdapter madapter;
 
     public static SystemFragment getInstance() {
         return new SystemFragment();
@@ -60,10 +60,10 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
     protected void initData() {
         presenter = new SystemPresenter(this);
         systemBeanList = new ArrayList<>();
-        adapter = new SystemAdapter(R.layout.item_system,systemBeanList);
+        madapter = new SystemAdapter(R.layout.item_system,systemBeanList);
         presenter.getKnowledgeList();
-        adapter.setOnItemChildClickListener(this);
-        rvSystem.setAdapter(adapter);
+        madapter.setOnItemChildClickListener(this);
+        rvSystem.setAdapter(madapter);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
     @Override
     public void getKnowledgeListOk(List<SystemBean> dataBean) {
         systemBeanList = dataBean;
-        adapter.replaceData(dataBean);
+        madapter.replaceData(dataBean);
         showNormal();
     }
 
@@ -105,12 +105,12 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
      * @param view
      * @param position
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
         Intent intent = new Intent(activity, SystemDetailActivity.class);
-        intent.putExtra(ConstantUtil.SYSTEM,(Serializable) adapter.getData().get(position));
+        intent.putExtra(ConstantUtil.SYSTEM,madapter.getData().get(position));
         startActivity(intent,options.toBundle());
     }
 

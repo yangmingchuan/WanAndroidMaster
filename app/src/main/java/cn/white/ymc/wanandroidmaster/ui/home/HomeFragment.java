@@ -45,8 +45,8 @@ import cn.white.ymc.wanandroidmaster.util.JumpUtil;
  * @QQ:745612618
  */
 
-public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnItemClickListener,
-        BaseQuickAdapter.OnItemChildClickListener ,HomeContract.View {
+public class HomeFragment extends BaseFragment implements HomePageAdapter.OnItemClickListener,
+        HomePageAdapter.OnItemChildClickListener ,HomeContract.View {
 
     @BindView(R.id.rv)
     RecyclerView rv;
@@ -135,7 +135,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        HomePageArticleBean.DatasBean bean = (HomePageArticleBean.DatasBean) adapter.getData().get(position);
+        HomePageArticleBean.DatasBean bean = mAdapter.getData().get(position);
         Bundle bundle = new Bundle();
         bundle.putInt(ConstantUtil.HOME_DETAIL_ID,bean.getId());
         bundle.putString(ConstantUtil.HOME_DETAIL_PATH,bean.getLink());
