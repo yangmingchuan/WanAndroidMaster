@@ -31,6 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             app:tl_textAllCaps="false"
+            app:tl_textSelectColor="@color/theme"
+            app:tl_textUnselectColor="@color/white_15"
             app:tl_textBold="BOTH"
             app:tl_textsize="@dimen/sp_14" />
 

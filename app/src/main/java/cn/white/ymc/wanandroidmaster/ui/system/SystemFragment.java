@@ -1,7 +1,10 @@
 package cn.white.ymc.wanandroidmaster.ui.system;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -102,11 +105,13 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
      * @param view
      * @param position
      */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
         Intent intent = new Intent(activity, SystemDetailActivity.class);
         intent.putExtra(ConstantUtil.SYSTEM,(Serializable) adapter.getData().get(position));
-        startActivity(intent);
+        startActivity(intent,options.toBundle());
     }
 
     @Override
