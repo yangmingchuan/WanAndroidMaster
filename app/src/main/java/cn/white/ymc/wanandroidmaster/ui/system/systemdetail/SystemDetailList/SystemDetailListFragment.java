@@ -1,6 +1,7 @@
 package cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,13 @@ public class SystemDetailListFragment extends BaseFragment {
     @Override
     public int getLayoutResID() {
         return R.layout.fragment_system_detail;
+    }
+
+    @Override
+    protected void initUI() {
+        super.initUI();
+        showLoading();
+        rv.setLayoutManager(new LinearLayoutManager(activity));
     }
 
     @Override
