@@ -14,6 +14,8 @@ import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
+import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.adapter.SystemDetailListAdapter;
+import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.SystemDetailListFragment;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 
 /**

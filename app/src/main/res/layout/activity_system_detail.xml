@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/appbar"
+        android:layout_below="@id/appbar"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -32,7 +32,10 @@
             android:layout_height="@dimen/dp_48"
             app:tl_textAllCaps="false"
             app:tl_textSelectColor="@color/theme"
-            app:tl_textUnselectColor="@color/white_15"
+            app:tl_textUnselectColor="@color/black_50"
+            app:tl_divider_color="@color/theme"
+            app:tl_indicator_corner_radius="@dimen/dp_4"
+            app:tl_underline_height="@dimen/dp_0"
             app:tl_textBold="BOTH"
             app:tl_textsize="@dimen/sp_14" />
 
