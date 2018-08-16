@@ -5,12 +5,14 @@ import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
+import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -71,5 +73,11 @@ public interface ApiService {
      */
     @GET("tree/json")
     Observable<BaseResp<List<SystemBean>>>getSystemList();
+
+    /**
+     * 单个知识体系列表
+     */
+    @GET("article/list/{page}/json")
+    Observable<BaseResp<SystemDetailListBean>> getSystemDetailList(@Path("page") int page, @Query("cid") int id);
 
 }

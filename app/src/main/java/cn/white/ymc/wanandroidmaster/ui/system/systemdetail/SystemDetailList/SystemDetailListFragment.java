@@ -1,6 +1,7 @@
 package cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,12 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
+import cn.white.ymc.wanandroidmaster.ui.system.SystemContract;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 
 /**
@@ -26,11 +32,13 @@ import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
  * @QQ:745612618
  */
 
-public class SystemDetailListFragment extends BaseFragment {
+public class SystemDetailListFragment extends BaseFragment implements SystemDetailListContract.View {
     @BindView(R.id.rv)
     RecyclerView rv;
     @BindView(R.id.normal_view)
     SmartRefreshLayout normalView;
+    private int id;
+    private SystemDetailListPresenter presenter;
 
     public static SystemDetailListFragment getInstance(int id) {
         SystemDetailListFragment fragment = new SystemDetailListFragment();
@@ -54,7 +62,34 @@ public class SystemDetailListFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        presenter = new SystemDetailListPresenter(this);
+        if (getArguments() != null) {
+            id = getArguments().getInt(ConstantUtil.SYSTEM_FRAGMENT_ID);
+            presenter.getSystemDetailList(0, id);
+        }
+        normalView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                presenter.autoRefresh();
+                refreshLayout.finishRefresh(1000);
+            }
+        });
+        normalView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                presenter.loadMore();
+                refreshLayout.finishLoadMore(1000);
+            }
+        });
+    }
+
+    @Override
+    public void getSystemDetailListResultOK(SystemDetailListBean systemDetailListBean, boolean isRefresh) {
 
     }
 
+    @Override
+    public void getSystemDetailListResultErr(String info) {
+
+    }
 }
