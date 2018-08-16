@@ -7,20 +7,25 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
 import com.flyco.tablayout.SlidingTabLayout;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
+import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
-import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.adapter.SystemDetailListAdapter;
 import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.SystemDetailListFragment;
+import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.adapter.SystemDetailListAdapter;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 
 /**
  * 体系详细界面
  * https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md    FlycoTabLayout使用
+ *
  * @author ymc
  */
 
@@ -60,7 +65,7 @@ public class SystemDetailActivity extends BaseActivity {
     protected void initData() {
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
-        adapter = new SystemDetailListAdapter(getSupportFragmentManager(),fragments);
+        adapter = new SystemDetailListAdapter(getSupportFragmentManager(), fragments);
         getSystemBundleData();
     }
 
@@ -78,10 +83,14 @@ public class SystemDetailActivity extends BaseActivity {
             }
         }
         systemViewpager.setAdapter(adapter);
-        systemTabLayout.setViewPager(systemViewpager,titles.toArray(new String[titles.size()]));
+        systemTabLayout.setViewPager(systemViewpager, titles.toArray(new String[titles.size()]));
         adapter.notifyDataSetChanged();
     }
 
-
+    @OnClick(R.id.float_button)
+    public void onViewClicked() {
+        SystemDetailListFragment fragment = adapter.getCurrentFragment();
+        fragment.scrollToTop();
+    }
 
 }
