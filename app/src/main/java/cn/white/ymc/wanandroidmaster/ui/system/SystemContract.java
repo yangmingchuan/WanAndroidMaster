@@ -20,16 +20,16 @@ public class SystemContract {
 
     interface View extends BaseView{
 
-        void getKnowledgeListOk(List<SystemBean> dataBean);
+        void getSystemListOk(List<SystemBean> dataBean);
 
-        void getKnowledgeListErr(String info);
+        void getSystemListErr(String info);
     }
 
     interface Presenter extends BasePre<View>{
 
         void autoRefresh();
 
-        void getKnowledgeList();
+        void getSystemList();
 
     }
 

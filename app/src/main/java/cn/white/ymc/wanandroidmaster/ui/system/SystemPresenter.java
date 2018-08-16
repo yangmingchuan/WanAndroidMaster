@@ -32,11 +32,11 @@ public class SystemPresenter extends BasePresenter<SystemContract.View> implemen
 
     @Override
     public void autoRefresh() {
-        getKnowledgeList();
+        getSystemList();
     }
 
     @Override
-    public void getKnowledgeList() {
+    public void getSystemList() {
         ApiStore.createApi(ApiService.class)
                 .getSystemList()
                 .subscribeOn(Schedulers.io())
@@ -47,15 +47,15 @@ public class SystemPresenter extends BasePresenter<SystemContract.View> implemen
                     }
                     @Override
                     public void onError(Throwable e) {
-                        view.getKnowledgeListErr(e.getMessage());
+                        view.getSystemListErr(e.getMessage());
                     }
 
                     @Override
                     public void onNext(BaseResp<List<SystemBean>> listBaseResp) {
                         if (listBaseResp.getErrorCode() == ConstantUtil.REQUEST_SUCCESS) {
-                            view.getKnowledgeListOk(listBaseResp.getData());
+                            view.getSystemListOk(listBaseResp.getData());
                         } else if (listBaseResp.getErrorCode() == ConstantUtil.REQUEST_ERROR) {
-                            view.getKnowledgeListErr(listBaseResp.getErrorMsg());
+                            view.getSystemListErr(listBaseResp.getErrorMsg());
                         }
                     }
                 });

@@ -149,4 +149,14 @@ public class SystemDetailListFragment extends BaseFragment implements SystemDeta
     public void scrollToTop() {
         rv.smoothScrollToPosition(0);
     }
+
+
+    @Override
+    public void reload() {
+        super.reload();
+        if(presenter!=null && id!=-1){
+            presenter.getSystemDetailList(0,id);
+        }
+        showLoading();
+    }
 }

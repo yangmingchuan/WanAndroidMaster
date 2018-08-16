@@ -61,7 +61,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
         presenter = new SystemPresenter(this);
         systemBeanList = new ArrayList<>();
         madapter = new SystemAdapter(R.layout.item_system,systemBeanList);
-        presenter.getKnowledgeList();
+        presenter.getSystemList();
         madapter.setOnItemClickListener(this);
         rvSystem.setAdapter(madapter);
     }
@@ -75,14 +75,14 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
     }
 
     @Override
-    public void getKnowledgeListOk(List<SystemBean> dataBean) {
+    public void getSystemListOk(List<SystemBean> dataBean) {
         systemBeanList = dataBean;
         madapter.replaceData(dataBean);
         showNormal();
     }
 
     @Override
-    public void getKnowledgeListErr(String info) {
+    public void getSystemListErr(String info) {
         showError(info);
     }
 
@@ -102,7 +102,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View,
     @Override
     public void reload() {
         showLoading();
-        presenter.getKnowledgeList();
+        presenter.getSystemList();
     }
 
     /**
