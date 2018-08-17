@@ -1,9 +1,11 @@
 package cn.white.ymc.wanandroidmaster.ui.mine;
 
-import android.support.v4.app.Fragment;
+import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 
 
 /**
+ * 我的界面
+ *
  * @packageName: cn.white.ymc.wanandroidmaster.ui.mine
  * @fileName: MineFragment
  * @date: 2018/7/27  9:07
@@ -11,10 +13,19 @@ import android.support.v4.app.Fragment;
  * @QQ:745612618
  */
 
-public class MineFragment extends Fragment {
+public class MineFragment extends BaseFragment {
 
     public static MineFragment getInstance() {
         return new MineFragment();
     }
 
+    @Override
+    public int getLayoutResID() {
+        return 0;
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 }
