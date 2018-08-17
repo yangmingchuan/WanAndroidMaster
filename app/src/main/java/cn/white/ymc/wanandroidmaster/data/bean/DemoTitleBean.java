@@ -12,7 +12,7 @@ import java.util.List;
  * @QQ:745612618
  */
 
-public class DemoBean {
+public class DemoTitleBean {
 
     /**
      * children : []

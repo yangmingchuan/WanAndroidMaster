@@ -62,4 +62,6 @@ public class ConstantUtil {
 
     public static final String SYSTEM = "system";
     public static final String SYSTEM_FRAGMENT_ID = "system_fragment_id";
+
+    public static final String DEMO_FRAGMENT_ID = "demo_fragment_id";
 }
