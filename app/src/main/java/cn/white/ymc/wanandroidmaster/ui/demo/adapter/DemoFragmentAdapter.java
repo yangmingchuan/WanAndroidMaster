@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import cn.white.ymc.wanandroidmaster.ui.demo.demolist.DemoDetailListFragment;
 import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.SystemDetailListFragment;
 
 /**
@@ -21,7 +22,7 @@ import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.Sys
 
 public class DemoFragmentAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments;
-    SystemDetailListFragment fragment;
+    DemoDetailListFragment fragment;
 
     public DemoFragmentAdapter(FragmentManager fm,List<Fragment> fragments) {
         super(fm);
@@ -49,11 +50,11 @@ public class DemoFragmentAdapter extends FragmentPagerAdapter {
      */
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        fragment = (SystemDetailListFragment) object;
+        fragment = (DemoDetailListFragment) object;
         super.setPrimaryItem(container, position, object);
     }
 
-    public SystemDetailListFragment getCurrentFragment() {
+    public DemoDetailListFragment getCurrentFragment() {
         return fragment;
     }
 }

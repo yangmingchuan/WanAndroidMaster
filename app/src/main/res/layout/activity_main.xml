@@ -27,7 +27,7 @@
         android:layout_gravity="bottom|end"
         app:borderWidth="0dp"
         app:rippleColor="@color/theme"
-        android:src="@drawable/icon_up_arrow"
+        app:srcCompat="@drawable/icon_up_arrow"
         android:layout_marginBottom="@dimen/dp_70"
         android:layout_marginEnd="@dimen/dp_12"
         app:layout_behavior="@string/float_button" />

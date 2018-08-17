@@ -139,4 +139,24 @@ public class AppLogMessageUtil {
         }
     }
 
+    /**
+     * 超出部分截断输出
+     * @param tag
+     * @param content
+     */
+    public static void logE(String tag, String content) {
+        int p = 2048;
+        long length = content.length();
+        if (length < p || length == p){
+            Log.e(tag, content);
+        } else {
+            while (content.length() > p) {
+                String logContent = content.substring(0, p);
+                content = content.replace(logContent, "");
+                Log.e(tag, logContent);
+            }
+            Log.e("OOOOO", content);
+        }
+    }
+
 }

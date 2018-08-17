@@ -136,6 +136,8 @@ public class HomeActivity extends BaseActivity {
                 systemFragment.scrollToTop();
                 break;
             case 2:
+                DemoFragment demoFragment = (DemoFragment) fragmentList.get(2);
+                demoFragment.scrollChildToTop();
                 break;
                 default:
                     break;

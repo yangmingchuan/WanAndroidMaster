@@ -1,7 +1,6 @@
 package cn.white.ymc.wanandroidmaster.ui.demo.demolist;
 
 import java.util.List;
-
 import cn.white.ymc.wanandroidmaster.base.contract.BasePre;
 import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
@@ -23,7 +22,7 @@ public class DemoDetailListContract {
          * @param beans
          * @param isRefresh
          */
-        void getDemoListOK(List<DemoDetailListBean> beans, boolean isRefresh);
+        void getDemoListOK(DemoDetailListBean beans, boolean isRefresh);
 
         /**
          * 获取 项目失败
@@ -34,8 +33,22 @@ public class DemoDetailListContract {
 
     public interface Presenter extends BasePre<View>{
 
+        /**
+         * 获取 项目列表
+         * @param page
+         * @param id
+         */
+        void getDemoList(int page,int id);
 
+        /**
+         * 刷新
+         */
+        void autoRefresh();
 
+        /**
+         * 加载更多
+         */
+        void loadMore();
 
     }
 

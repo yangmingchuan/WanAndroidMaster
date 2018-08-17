@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.concurrent.TimeUnit;
+
+import cn.white.ymc.wanandroidmaster.util.Log.AppLogMessageUtil;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -43,7 +45,7 @@ public class HttpLoggingInterceptor implements Interceptor {
             body = buffer.readString(charset);
         }
 
-        Log.e("jxy",
+        AppLogMessageUtil.logE("jxy",
                 "发送请求: method：" + request.method()
                         + "\nurl：" + request.url()
                         + "\n请求头：" + request.headers()
@@ -74,7 +76,7 @@ public class HttpLoggingInterceptor implements Interceptor {
         rBody = buffer.clone().readString(charset);
 //        }
 
-        Log.e("jxy",
+        AppLogMessageUtil.logE("jxy",
                 "收到响应: code:" + response.code()
                 + "\n请求url："+response.request().url()
                 + "\n请求body：" + body

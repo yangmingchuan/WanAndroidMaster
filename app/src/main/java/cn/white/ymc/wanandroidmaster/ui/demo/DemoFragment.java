@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -51,6 +52,7 @@ public class DemoFragment extends BaseFragment implements DemoContract.View{
     protected void initData() {
         demoBeanList = new ArrayList<>();
         fragmentList = new ArrayList<>();
+        titles = new LinkedList<>();
         demoPresenter = new DemoPresenter(this);
         adapter = new DemoFragmentAdapter(getChildFragmentManager(),fragmentList);
         demoPresenter.getDemoTitleList();
@@ -88,5 +90,13 @@ public class DemoFragment extends BaseFragment implements DemoContract.View{
         super.reload();
         showLoading();
         demoPresenter.getDemoTitleList();
+    }
+
+    /**
+     * 查找 子 fragment 回到顶部
+     */
+    public void scrollChildToTop(){
+        DemoDetailListFragment currentFragment = adapter.getCurrentFragment();
+        currentFragment.scrollToTop();
     }
 }
