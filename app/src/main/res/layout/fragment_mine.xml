@@ -58,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
             android:layout_marginTop="@dimen/dp_12"
+            android:padding="@dimen/dp_5"
             android:background="@color/white_255">
 
             <ImageView
@@ -89,14 +90,14 @@
         <View
             android:layout_width="@dimen/dp_16"
             android:layout_height="@dimen/dp_1"
-            android:background="@color/white_255" />
+            android:background="@color/white_30" />
 
-        <!--书签-->
+        <!--to do-->
         <RelativeLayout
-            android:visibility="gone"
             android:id="@+id/view_label"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
+            android:padding="@dimen/dp_5"
             android:background="@color/white_255">
 
             <ImageView
@@ -105,7 +106,7 @@
                 android:layout_height="@dimen/dp_20"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp_16"
-                app:srcCompat="@drawable/ic_label" />
+                app:srcCompat="@drawable/ic_content_paste_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,7 +114,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_label"
-                android:text="@string/my_label"
+                android:text="@string/my_todo"
                 android:textColor="@color/homepage_color" />
 
             <ImageView
@@ -136,6 +137,7 @@
             android:id="@+id/view_about"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
+            android:padding="@dimen/dp_5"
             android:background="@color/white_255">
 
             <ImageView

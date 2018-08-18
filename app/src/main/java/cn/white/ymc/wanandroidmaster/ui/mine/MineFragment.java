@@ -1,5 +1,6 @@
 package cn.white.ymc.wanandroidmaster.ui.mine;
 
+import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 
 
@@ -21,7 +22,7 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public int getLayoutResID() {
-        return 0;
+        return R.layout.fragment_mine;
     }
 
     @Override

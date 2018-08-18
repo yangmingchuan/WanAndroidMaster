@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import cn.white.ymc.wanandroidmaster.ui.demo.demolist.DemoDetailListFragment;
-import cn.white.ymc.wanandroidmaster.ui.system.systemdetail.SystemDetailList.SystemDetailListFragment;
 
 /**
  * 类似 体系界面  适配器
