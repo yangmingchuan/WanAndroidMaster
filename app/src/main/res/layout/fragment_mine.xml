@@ -94,14 +94,14 @@
 
         <!--to do-->
         <RelativeLayout
-            android:id="@+id/view_label"
+            android:id="@+id/view_todo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
             android:padding="@dimen/dp_5"
             android:background="@color/white_255">
 
             <ImageView
-                android:id="@+id/image_label"
+                android:id="@+id/image_todo"
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="@dimen/dp_20"
                 android:layout_centerVertical="true"
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp_12"
-                android:layout_toEndOf="@+id/image_label"
+                android:layout_toEndOf="@+id/image_todo"
                 android:text="@string/my_todo"
                 android:textColor="@color/homepage_color" />
 

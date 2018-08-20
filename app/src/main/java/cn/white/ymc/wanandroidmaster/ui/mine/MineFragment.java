@@ -1,8 +1,17 @@
 package cn.white.ymc.wanandroidmaster.ui.mine;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.bumptech.glide.Glide;
+import butterknife.BindView;
+import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
-
+import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * 我的界面
@@ -16,6 +25,28 @@ import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 
 public class MineFragment extends BaseFragment {
 
+    @BindView(R.id.image_head)
+    CircleImageView imageHead;
+    @BindView(R.id.tv_username)
+    TextView tvUsername;
+    @BindView(R.id.image_collect)
+    ImageView imageCollect;
+    @BindView(R.id.view_collect)
+    RelativeLayout viewCollect;
+    @BindView(R.id.image_todo)
+    ImageView imageTodo;
+    @BindView(R.id.view_todo)
+    RelativeLayout viewTodo;
+    @BindView(R.id.image_about)
+    ImageView imageAbout;
+    @BindView(R.id.view_about)
+    RelativeLayout viewAbout;
+    @BindView(R.id.tv_logout)
+    TextView tvLogout;
+
+    private boolean haslogin;
+    private String userName;
+
     public static MineFragment getInstance() {
         return new MineFragment();
     }
@@ -26,7 +57,30 @@ public class MineFragment extends BaseFragment {
     }
 
     @Override
-    protected void initData() {
+    protected void initUI() {
+        super.initUI();
+        Glide.with(context).load(getResources().getResourceName(R.drawable.gaoyuanyuan)).into(imageHead);
+    }
 
+    @Override
+    protected void initData() {
+        haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN,false);
+        userName = (String) SharedPreferenceUtil.get(context,ConstantUtil.USERNAME,ConstantUtil.USERNAME);
+        tvUsername.setText(haslogin? userName : getString(R.string.click_head_login));
+        imageHead.setEnabled(!haslogin);
+    }
+
+    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about,R.id.image_head})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.view_collect:
+                break;
+            case R.id.view_todo:
+                break;
+            case R.id.view_about:
+                break;
+            case R.id.image_head:
+                break;
+        }
     }
 }
