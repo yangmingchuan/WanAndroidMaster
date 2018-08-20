@@ -9,7 +9,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
+import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -74,12 +77,16 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
+
                 break;
             case R.id.view_todo:
+
                 break;
             case R.id.view_about:
+                JumpUtil.overlay(context, AboutMeActivity.class);
                 break;
             case R.id.image_head:
+                JumpUtil.overlay(context, LoginActivity.class);
                 break;
         }
     }

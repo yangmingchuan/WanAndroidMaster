@@ -7,6 +7,7 @@
     android:background="@color/grey">
 
     <LinearLayout
+        android:id="@+id/normal_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -127,7 +128,6 @@
         </RelativeLayout>
 
         <View
-            android:visibility="gone"
             android:layout_width="@dimen/dp_16"
             android:layout_height="@dimen/dp_1"
             android:background="@color/white_255" />

@@ -40,7 +40,8 @@
             android:name=".ui.home.homedetail.HomeDetailActivity"
             android:exported="false"
             android:launchMode="singleTask" />
-        <activity android:name=".ui.system.systemdetail.SystemDetailActivity"></activity>
+        <activity android:name=".ui.system.systemdetail.SystemDetailActivity" />
+        <activity android:name=".ui.mine.minelist.AboutMeActivity"></activity>
     </application>
 
 </manifest>
