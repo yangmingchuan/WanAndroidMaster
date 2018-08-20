@@ -62,7 +62,7 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initUI() {
         super.initUI();
-        Glide.with(context).load(getResources().getResourceName(R.drawable.gaoyuanyuan)).into(imageHead);
+        Glide.with(context).load(R.drawable.icon_head).into(imageHead);
     }
 
     @Override
