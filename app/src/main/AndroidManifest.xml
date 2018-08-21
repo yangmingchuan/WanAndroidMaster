@@ -41,7 +41,8 @@
             android:exported="false"
             android:launchMode="singleTask" />
         <activity android:name=".ui.system.systemdetail.SystemDetailActivity" />
-        <activity android:name=".ui.mine.minelist.AboutMeActivity"></activity>
+        <activity android:name=".ui.mine.minelist.AboutMeActivity" />
+        <activity android:name=".ui.mine.minelist.CollectionListActivity"></activity>
     </application>
 
 </manifest>

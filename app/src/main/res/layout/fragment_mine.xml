@@ -89,7 +89,7 @@
         </RelativeLayout>
 
         <View
-            android:layout_width="@dimen/dp_16"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"
             android:background="@color/white_30" />
 
@@ -128,9 +128,9 @@
         </RelativeLayout>
 
         <View
-            android:layout_width="@dimen/dp_16"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"
-            android:background="@color/white_255" />
+            android:background="@color/white_30" />
 
         <!--关于我们-->
         <RelativeLayout

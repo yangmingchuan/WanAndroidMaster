@@ -77,7 +77,7 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
-
+                
                 break;
             case R.id.view_todo:
 
