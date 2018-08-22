@@ -18,4 +18,6 @@
         app:layout_constraintTop_toBottomOf="@id/iv_head"
         android:text="@string/about_content"/>
 
+
+
 </android.support.constraint.ConstraintLayout>
