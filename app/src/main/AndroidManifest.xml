@@ -42,7 +42,8 @@
             android:launchMode="singleTask" />
         <activity android:name=".ui.system.systemdetail.SystemDetailActivity" />
         <activity android:name=".ui.mine.minelist.AboutMeActivity" />
-        <activity android:name=".ui.mine.minelist.CollectionListActivity"></activity>
+        <activity android:name=".ui.mine.minelist.CollectionListActivity" />
+        <activity android:name=".ui.home.hot.HotActivity"></activity>
     </application>
 
 </manifest>

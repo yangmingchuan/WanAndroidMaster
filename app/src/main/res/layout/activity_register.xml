@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:background="@color/theme"
         app:contentInsetStart="0dp"
-        app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
         app:titleTextColor="@color/white_255" />
 
     <RelativeLayout

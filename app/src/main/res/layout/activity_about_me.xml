@@ -17,7 +17,7 @@
             android:id="@+id/article_toolbar"
             style="@style/AppTheme_toolbar"
             android:background="@color/theme"
-            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
             app:titleTextColor="@color/white_255" />
 
     </android.support.design.widget.AppBarLayout>

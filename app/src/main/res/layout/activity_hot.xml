@@ -4,42 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity">
+    tools:context="cn.white.ymc.wanandroidmaster.ui.home.hot.HotActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50">
-
+        android:layout_height="@dimen/dp_50"
+        >
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_collect"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:titleTextColor="@color/white_255"
             android:background="@color/theme"
-            app:navigationIcon="@drawable/ic_arrow_back_white_24dp" />
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    <ScrollView
         android:id="@+id/normal_view"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         android:layout_marginTop="@dimen/dp_50"
-        android:layout_height="match_parent">
+        >
 
-        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/id_flowlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_15"
+            android:padding="20dp">
+        </com.zhy.view.flowlayout.TagFlowLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/grey" />
-
-        <com.scwang.smartrefresh.header.TaurusHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

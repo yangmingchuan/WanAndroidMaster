@@ -177,10 +177,8 @@ public class HomeActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_menu_hot:
-
                 break;
             case R.id.main_menu_search:
-
                 break;
                 default:
                     break;
