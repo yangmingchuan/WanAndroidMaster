@@ -24,7 +24,7 @@ public class CollectionListPresenter extends BasePresenter<CollectionListContrac
 
     private CollectionListContract.View view;
     private int currentPage;
-    private boolean hasRefresh;
+    private boolean hasRefresh = true;
 
     public CollectionListPresenter(CollectionListContract.View view) {
         this.view = view;

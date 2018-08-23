@@ -84,6 +84,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initToolbar() {
         setSupportActionBar(toolbarCommon);
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     /**

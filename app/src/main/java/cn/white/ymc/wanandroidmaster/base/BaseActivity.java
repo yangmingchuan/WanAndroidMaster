@@ -49,6 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkB
         activity = this;
         netEvent = this;
         initStatusColor();
+        initToolbar();
         initView();
         initData();
     }
@@ -62,6 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkB
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             //设置状态栏颜色
             window.setStatusBarColor(getColor(R.color.theme));
+
             ViewGroup mContentView = (ViewGroup) activity.findViewById(Window.ID_ANDROID_CONTENT);
             View mChildView = mContentView.getChildAt(0);
             if (mChildView != null) {
@@ -74,6 +76,10 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkB
     protected abstract int getLayoutId();
     protected abstract void initView();
     protected abstract void initData();
+    /**
+     * 初始化toolbar
+     */
+    protected void initToolbar(){}
 
     @Override
     public void onNetChange(int netMobile) {
@@ -83,8 +89,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkB
             AppLogMessageUtil.e("NETWORK_NORMAL");
         }
     }
-
-
 
 
     @Override

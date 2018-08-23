@@ -11,6 +11,8 @@ import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
+import cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity;
+import cn.white.ymc.wanandroidmaster.ui.mine.minelist.adapter.CollectionListAdapter;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
@@ -77,7 +79,7 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
-                
+                JumpUtil.overlay(context, CollectionListActivity.class);
                 break;
             case R.id.view_todo:
 
@@ -88,6 +90,8 @@ public class MineFragment extends BaseFragment {
             case R.id.image_head:
                 JumpUtil.overlay(context, LoginActivity.class);
                 break;
+                default:
+                    break;
         }
     }
 }
