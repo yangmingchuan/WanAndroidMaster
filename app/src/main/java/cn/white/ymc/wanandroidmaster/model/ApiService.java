@@ -3,6 +3,7 @@ package cn.white.ymc.wanandroidmaster.model;
 import java.util.List;
 import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
+import cn.white.ymc.wanandroidmaster.data.bean.CollectBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
@@ -93,4 +94,11 @@ public interface ApiService {
      */
     @GET("project/list/{page}/json")
     Observable<BaseResp<DemoDetailListBean>> getDemoDetailList(@Path("page") int page ,@Query("cid")int id);
+
+    /**
+     * 获取 我的收藏列表
+     */
+    @GET("lg/collect/list/{page}/json")
+    Observable<BaseResp<CollectBean>> getCollectionList(@Path("page") int page);
+
 }

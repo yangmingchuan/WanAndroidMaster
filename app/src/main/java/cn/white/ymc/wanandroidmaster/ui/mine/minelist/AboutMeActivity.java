@@ -1,14 +1,14 @@
 package cn.white.ymc.wanandroidmaster.ui.mine.minelist;
 
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 
@@ -18,7 +18,7 @@ import cn.white.ymc.wanandroidmaster.base.BaseActivity;
  */
 
 public class AboutMeActivity extends BaseActivity {
-    @BindView(R.id.toolbar_common)
+    @BindView(R.id.article_toolbar)
     Toolbar toolbarCommon;
     @BindView(R.id.applayout)
     AppBarLayout applayout;
@@ -34,7 +34,15 @@ public class AboutMeActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        tvContent.setText(Html.escapeHtml(getString(R.string.about_content)));
+        setSupportActionBar(toolbarCommon);
+        getSupportActionBar().setTitle(R.string.about_us);
+        toolbarCommon.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        tvContent.setText(Html.fromHtml(getString(R.string.about_content)));
     }
 
     @Override
@@ -42,10 +50,4 @@ public class AboutMeActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

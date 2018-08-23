@@ -51,7 +51,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
     private View mEmptyView;
     private LVChromeLogo lvChromeLogo;
     private ViewGroup mNormalView;
-    private TextView tvErrMsg;
+    private TextView tvMsg;
     /**
      * 当前状态
      */
@@ -126,8 +126,8 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         lvChromeLogo = mLoadingView.findViewById(R.id.lv_load);
         mErrorView = parent.findViewById(R.id.error_group);
         mEmptyView = parent.findViewById(R.id.empty_group);
-        tvErrMsg = mErrorView.findViewById(R.id.tv_reload);
-        tvErrMsg.setOnClickListener(new View.OnClickListener() {
+        tvMsg = parent.findViewById(R.id.tv_err_msg);
+        mErrorView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 reload();
@@ -137,17 +137,6 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         mEmptyView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
         mNormalView.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * 清空所有view
-     */
-    public void clearAllView(){
-        mErrorView.setVisibility(View.GONE);
-        mEmptyView.setVisibility(View.GONE);
-        mLoadingView.setVisibility(View.GONE);
-        mNormalView.setVisibility(View.GONE);
-        currentState = NORMAL_STATE;
     }
 
     /**
@@ -184,7 +173,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         hideCurrentView();
         currentState = ERROR_STATE;
         mErrorView.setVisibility(View.VISIBLE);
-        tvErrMsg.setText(err);
+        tvMsg.setText(err);
     }
 
     @Override
