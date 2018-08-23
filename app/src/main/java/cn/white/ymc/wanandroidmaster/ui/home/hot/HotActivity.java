@@ -28,6 +28,8 @@ public class HotActivity extends BaseResultActivity {
     @BindView(R.id.id_flowlayout)
     TagFlowLayout idFlowlayout;
 
+    
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_hot;

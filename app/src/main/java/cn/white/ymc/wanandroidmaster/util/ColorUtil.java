@@ -1,7 +1,6 @@
 package cn.white.ymc.wanandroidmaster.util;
 
 import android.graphics.Color;
-
 import java.util.Random;
 
 /**

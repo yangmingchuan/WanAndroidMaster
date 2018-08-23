@@ -16,10 +16,20 @@ import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 public class HotContract {
 
     public interface View extends BaseView{
-        
+        /**
+         * 获取成功 失败
+         */
+         void getHotResultOK();
+
+         void getHotResultErr(String err);
     }
 
     public interface Presenter extends BasePre<View>{
+
+        /**
+         * 获取 最热网站 列表
+         */
+        void getHotList();
 
     }
 
