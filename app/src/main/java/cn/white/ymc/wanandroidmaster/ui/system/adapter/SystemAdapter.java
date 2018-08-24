@@ -31,7 +31,7 @@ public class SystemAdapter extends BaseQuickAdapter<SystemBean,BaseViewHolder> {
         helper.setText(R.id.tv_knowledge_title, item.getName());
         StringBuilder sb = new StringBuilder();
         for (SystemBean.ChildrenBean childrenBean : item.getChildren()) {
-            sb.append(childrenBean.getName()).append("  ");
+            sb.append(childrenBean.getName()).append("      ");
         }
         helper.setText(R.id.tv_knowledge_content, sb.toString());
     }

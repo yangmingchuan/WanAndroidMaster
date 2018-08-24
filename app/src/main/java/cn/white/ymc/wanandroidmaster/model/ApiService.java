@@ -7,6 +7,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.CollectBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
@@ -100,5 +101,8 @@ public interface ApiService {
      */
     @GET("lg/collect/list/{page}/json")
     Observable<BaseResp<CollectBean>> getCollectionList(@Path("page") int page);
+
+    @GET("/friend/json")
+    Observable<BaseResp<List<HotBean>>> getHotList();
 
 }

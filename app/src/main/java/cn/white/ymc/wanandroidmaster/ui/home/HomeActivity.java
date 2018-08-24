@@ -20,9 +20,11 @@ import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.ui.demo.DemoFragment;
+import cn.white.ymc.wanandroidmaster.ui.home.hot.HotActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.MineFragment;
 import cn.white.ymc.wanandroidmaster.ui.system.SystemFragment;
 import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
+import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 
 /**
  * 主界面 activity
@@ -177,6 +179,7 @@ public class HomeActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_menu_hot:
+                JumpUtil.overlay(context, HotActivity.class);
                 break;
             case R.id.main_menu_search:
                 break;

@@ -43,8 +43,8 @@
                 android:id="@+id/tv_knowledge_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/homepage_color"
-                android:textSize="@dimen/sp_15"
+                android:textColor="@color/black_90"
+                android:textSize="@dimen/sp_16"
                 tools:text="开发环境" />
 
             <TextView
@@ -53,6 +53,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_12"
                 android:textColor="@color/finish"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
                 tools:text="Android Studio相关   gradle  官方发布" />
         </LinearLayout>
     </RelativeLayout>

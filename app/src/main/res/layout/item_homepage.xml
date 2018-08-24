@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dp_8">
+        android:padding="@dimen/dp_10">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,8 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:drawablePadding="@dimen/dp_8"
-                android:drawableStart="@mipmap/icon_author"
+                android:layout_marginLeft="@dimen/dp_5"
                 android:gravity="center_vertical"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/sp_13" />
@@ -41,12 +40,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="@dimen/dp_20"
-                    android:layout_marginStart="@dimen/dp_10"
-                    android:src="@mipmap/icon_time" />
 
                 <TextView
                     android:id="@+id/tv_time"
@@ -69,8 +62,8 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="2"
-            android:textColor="@color/homepage_color"
-            android:textSize="@dimen/sp_15"
+            android:textColor="@color/black_90"
+            android:textSize="@dimen/sp_16"
             tools:text="文章内容" />
 
         <RelativeLayout
@@ -90,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/theme"
-                    android:textSize="@dimen/sp_14"
+                    android:textSize="@dimen/sp_13"
                     tools:text="专题" />
 
                 <TextView

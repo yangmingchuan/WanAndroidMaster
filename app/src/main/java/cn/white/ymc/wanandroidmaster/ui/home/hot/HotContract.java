@@ -1,7 +1,10 @@
 package cn.white.ymc.wanandroidmaster.ui.home.hot;
 
+import java.util.List;
+
 import cn.white.ymc.wanandroidmaster.base.contract.BasePre;
 import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
+import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 
 /**
  *  最热网站 契约类
@@ -19,7 +22,7 @@ public class HotContract {
         /**
          * 获取成功 失败
          */
-         void getHotResultOK();
+         void getHotResultOK(List<HotBean> hotBeans);
 
          void getHotResultErr(String err);
     }
