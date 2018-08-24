@@ -37,6 +37,9 @@
             app:tl_indicator_corner_radius="@dimen/dp_4"
             app:tl_underline_height="@dimen/dp_0"
             app:tl_textBold="BOTH"
+            app:tl_divider_padding="13dp"
+            app:tl_indicator_color="@color/theme"
+            app:tl_indicator_height="2dp"
             app:tl_textsize="@dimen/sp_14" />
 
         <android.support.v4.view.ViewPager
