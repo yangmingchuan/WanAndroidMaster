@@ -182,6 +182,7 @@ public class HomeActivity extends BaseActivity {
                 JumpUtil.overlay(context, HotActivity.class);
                 break;
             case R.id.main_menu_search:
+
                 break;
                 default:
                     break;
