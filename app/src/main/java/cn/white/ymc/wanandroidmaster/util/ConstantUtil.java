@@ -64,4 +64,11 @@ public class ConstantUtil {
     public static final String SYSTEM_FRAGMENT_ID = "system_fragment_id";
 
     public static final String DEMO_FRAGMENT_ID = "demo_fragment_id";
+
+    /**
+     * 保存 搜索历史 sp key
+     *
+     */
+    public static final String DEFAULT = "default";
+    public static final String SEARCH_HISTORY = "search_history";
 }

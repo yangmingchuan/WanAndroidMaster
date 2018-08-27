@@ -6,6 +6,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.CollectBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.HotKeyBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
@@ -59,15 +60,13 @@ public interface ApiService {
     /**
      * 收藏文章
      * @param id
-     * @return
      */
     @POST("lg/collect/{id}/json")
     Observable<BaseResp> collectArticle(@Path("id") int id);
 
     /**
      *  取消收藏文章
-     * @param id
-     * @return
+     * @param id id
      */
     @POST("lg/uncollect_originId/{id}/json")
     Observable<BaseResp> cancelCollectArticle(@Path("id") int id);
@@ -102,7 +101,17 @@ public interface ApiService {
     @GET("lg/collect/list/{page}/json")
     Observable<BaseResp<CollectBean>> getCollectionList(@Path("page") int page);
 
+    /**
+     * 获取 热门词
+     */
     @GET("/friend/json")
     Observable<BaseResp<List<HotBean>>> getHotList();
+
+    /**
+     * 获取 搜索热词
+     * @return
+     */
+    @GET("/hotkey/json")
+    Observable<BaseResp<List<HotKeyBean>>> getHitKeyBean();
 
 }
