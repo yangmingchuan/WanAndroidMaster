@@ -27,13 +27,17 @@ import java.util.List;
 import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.base.MyApplication;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.ui.home.adapter.HomePageAdapter;
 import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.GlideImageLoader;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
+import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
 /**
  * 首页 fragment 界面
@@ -85,6 +89,17 @@ public class HomeFragment extends BaseFragment implements HomePageAdapter.OnItem
         presenter = new HomePagePresenter(this);
         presenter.getBanner();
         presenter.getHomepageListData(0);
+        /**
+         * 没有登录过 就不自动登录
+         */
+        if(!SharedPreferenceUtil.get(activity, ConstantUtil.USERNAME, ConstantUtil.DEFAULT).
+                equals(ConstantUtil.DEFAULT)){
+            String username = (String) SharedPreferenceUtil.get(MyApplication.getInstance(),
+                    ConstantUtil.USERNAME, ConstantUtil.DEFAULT);
+            String password = (String) SharedPreferenceUtil.get(MyApplication.getInstance(),
+                    ConstantUtil.PASSWORD, ConstantUtil.DEFAULT);
+            presenter.loginUser(username,password);
+        }
         mAdapter = new HomePageAdapter(R.layout.item_homepage, articleList);
         mAdapter.addHeaderView(bannerView);
         mAdapter.setOnItemClickListener(this);
@@ -231,6 +246,23 @@ public class HomeFragment extends BaseFragment implements HomePageAdapter.OnItem
     @Override
     public void getBannerErr(String info) {
         showError(info);
+    }
+
+    /**
+     * 登录成功
+     */
+    @Override
+    public void loginOk(UserInfo userInfo) {
+        ToastUtil.show(activity, getString(R.string.auto_login_ok));
+        SharedPreferenceUtil.put(activity, ConstantUtil.ISLOGIN, true);
+    }
+
+    /**
+     * 登录失败
+     */
+    @Override
+    public void loginErr(String err) {
+        ToastUtil.show(activity, err);
     }
 
     @Override

@@ -5,6 +5,7 @@ import cn.white.ymc.wanandroidmaster.base.contract.BasePresenter;
 import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
@@ -114,5 +115,35 @@ public class HomePagePresenter extends BasePresenter<HomeContract.View> implemen
                         }
                     }
                 });
+    }
+
+    @Override
+    public void loginUser(String username, String password) {
+        ApiStore.createApi(ApiService.class)
+                .login(username,password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BaseResp<UserInfo>>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (e.getMessage() != null) {
+                            view.loginErr(e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onNext(BaseResp<UserInfo> baseResp) {
+                        if (baseResp.getErrorCode() == ConstantUtil.REQUEST_SUCCESS) {
+                            view.loginOk(baseResp.getData());
+                        } else if (baseResp.getErrorCode() == ConstantUtil.REQUEST_ERROR) {
+                            view.loginErr(baseResp.getErrorMsg());
+                        }
+                    }
+                });
+
     }
 }

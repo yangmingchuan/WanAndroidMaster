@@ -1,12 +1,15 @@
 package cn.white.ymc.wanandroidmaster.ui.home;
 
 import android.content.res.ColorStateList;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +28,10 @@ import cn.white.ymc.wanandroidmaster.ui.home.search.SearechActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.MineFragment;
 import cn.white.ymc.wanandroidmaster.ui.system.SystemFragment;
 import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
+import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
+import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
 /**
  * 主界面 activity
@@ -189,6 +195,19 @@ public class HomeActivity extends BaseActivity {
                     break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((System.currentTimeMillis() - mExitTime) > 2000) {
+            ToastUtil.show(activity, getString(R.string.exit_system));
+            mExitTime = System.currentTimeMillis();
+            return false;
+        } else {
+            SharedPreferenceUtil.put(activity, ConstantUtil.ISLOGIN, ConstantUtil.FALSE);
+            finish();
+            return true;
+        }
     }
 
 }

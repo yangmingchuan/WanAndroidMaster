@@ -6,6 +6,7 @@ import cn.white.ymc.wanandroidmaster.base.contract.BasePre;
 import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 import cn.white.ymc.wanandroidmaster.data.bean.BenarBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 
 /**
  * 首页 契约类
@@ -29,6 +30,9 @@ public class HomeContract {
 
         void getBannerErr(String info);
 
+        void loginOk(UserInfo userInfo);
+
+        void loginErr (String err);
     }
 
     public interface Per extends BasePre<View> {
@@ -52,6 +56,11 @@ public class HomeContract {
          * @param page
          */
         void  getHomepageListData(int page);
+
+        /**
+         * 帐号 登录
+         */
+        void loginUser(String username ,String password);
     }
 
 }

@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
             android:layout_marginTop="@dimen/dp_12"
-            android:padding="@dimen/dp_8"
+            android:padding="@dimen/dp_10"
             android:background="@color/white_255">
 
             <ImageView
@@ -77,6 +77,7 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_collect"
                 android:text="@string/my_collect"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@color/homepage_color" />
 
             <ImageView
@@ -98,7 +99,7 @@
             android:id="@+id/view_todo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
-            android:padding="@dimen/dp_8"
+            android:padding="@dimen/dp_10"
             android:background="@color/white_255">
 
             <ImageView
@@ -116,6 +117,7 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_todo"
                 android:text="@string/my_todo"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@color/homepage_color" />
 
             <ImageView
@@ -137,7 +139,7 @@
             android:id="@+id/view_about"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
-            android:padding="@dimen/dp_8"
+            android:padding="@dimen/dp_10"
             android:background="@color/white_255">
 
             <ImageView
@@ -155,6 +157,7 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_about"
                 android:text="@string/about_us"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@color/homepage_color" />
 
             <ImageView
