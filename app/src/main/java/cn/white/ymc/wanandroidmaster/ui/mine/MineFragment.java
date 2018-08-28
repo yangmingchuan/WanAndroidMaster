@@ -84,7 +84,7 @@ public class MineFragment extends BaseFragment {
                 JumpUtil.overlay(context, CollectionListActivity.class);
                 break;
             case R.id.view_todo:
-
+                ToastUtil.show(activity, "将在后续以 kotlin mvp app 的方式展示");
                 break;
             case R.id.view_about:
                 JumpUtil.overlay(context, AboutMeActivity.class);
