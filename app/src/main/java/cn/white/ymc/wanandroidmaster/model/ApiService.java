@@ -114,4 +114,8 @@ public interface ApiService {
     @GET("/hotkey/json")
     Observable<BaseResp<List<HotKeyBean>>> getHitKeyBean();
 
+
+    @POST("/article/query/{page}/json")
+    Observable<BaseResp<HomePageArticleBean>> getSearechResult(@Path("page") int page ,@Query("k")String key);
+
 }

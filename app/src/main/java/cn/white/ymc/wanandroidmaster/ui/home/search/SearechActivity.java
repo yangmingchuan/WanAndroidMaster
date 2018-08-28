@@ -1,8 +1,10 @@
 package cn.white.ymc.wanandroidmaster.ui.home.search;
 
+import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -18,13 +20,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseResultActivity;
 import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HotKeyBean;
 import cn.white.ymc.wanandroidmaster.ui.home.search.adapter.SearechAdapter;
+import cn.white.ymc.wanandroidmaster.ui.home.search.searechdetail.SearechDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ColorUtil;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 
 /**
  * 搜索界面
@@ -73,6 +78,16 @@ public class SearechActivity extends BaseResultActivity implements SearechContra
                 finish();
             }
         });
+    }
+
+    /**
+     * 清空点击事件
+     */
+    @OnClick({R.id.tv_clear})
+    public void onClick(View view){
+        historyList.clear();
+        adapter.notifyDataSetChanged();
+        presenter.saveHistory(context, historyList);
     }
 
     @Override
@@ -127,6 +142,9 @@ public class SearechActivity extends BaseResultActivity implements SearechContra
                     historyList.add(name);
                     presenter.saveHistory(context, historyList);
                 }
+                Bundle bundle = new Bundle();
+                bundle.putString(ConstantUtil.SEARCH_RESULT_KEY, name);
+                JumpUtil.overlay(context, SearechDetailActivity.class, bundle);
                 return true;
             }
         });
@@ -137,10 +155,35 @@ public class SearechActivity extends BaseResultActivity implements SearechContra
         showError(err);
     }
 
+    /**
+     * 设置title 上的搜索 栏
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search,menu);
-
+        SearchView mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        mSearchView.setQueryHint(getString(R.string.input_search_content));
+        mSearchView.setIconified(false);
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (!historyList.contains(query)) {
+                    historyList.add(query);
+                    adapter.notifyDataSetChanged();
+                    presenter.saveHistory(context, historyList);
+                }
+                Bundle bundle = new Bundle();
+                bundle.putString(ConstantUtil.SEARCH_RESULT_KEY,query);
+                JumpUtil.overlay(context, SearechDetailActivity.class, bundle);
+                return true;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -148,8 +191,10 @@ public class SearechActivity extends BaseResultActivity implements SearechContra
      *  搜索历史 item 点击事件
      */
     @Override
-    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+    public void onItemClick(BaseQuickAdapter madapter, View view, int position) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ConstantUtil.SEARCH_RESULT_KEY,adapter.getData().get(position));
+        JumpUtil.overlay(context, SearechDetailActivity.class, bundle);
     }
 
     /**
@@ -157,6 +202,20 @@ public class SearechActivity extends BaseResultActivity implements SearechContra
      */
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+        historyList.remove(position);
+        adapter.notifyDataSetChanged();
+        presenter.saveHistory(context, historyList);
+    }
 
+    /**
+     *  重新请求
+     */
+    @Override
+    public void reload() {
+        super.reload();
+        if(adapter!=null){
+            presenter.getHotListResult();
+            presenter.getHistoryList(context,historyList);
+        }
     }
 }

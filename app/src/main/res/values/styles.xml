@@ -39,4 +39,9 @@
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
+    <!--搜索栏 光标颜色-->
+    <style name="EditText" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorAccent">@color/white_90</item>
+    </style>
+
 </resources>

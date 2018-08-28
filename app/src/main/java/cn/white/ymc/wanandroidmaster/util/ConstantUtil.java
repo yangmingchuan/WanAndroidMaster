@@ -71,4 +71,9 @@ public class ConstantUtil {
      */
     public static final String DEFAULT = "default";
     public static final String SEARCH_HISTORY = "search_history";
+
+    /**
+     * 搜索界面 跳转 搜索界面界面 key
+     */
+    public static final String SEARCH_RESULT_KEY = "search_result_key";
 }

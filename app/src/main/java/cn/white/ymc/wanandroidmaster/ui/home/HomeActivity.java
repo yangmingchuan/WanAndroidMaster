@@ -21,6 +21,7 @@ import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.ui.demo.DemoFragment;
 import cn.white.ymc.wanandroidmaster.ui.home.hot.HotActivity;
+import cn.white.ymc.wanandroidmaster.ui.home.search.SearechActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.MineFragment;
 import cn.white.ymc.wanandroidmaster.ui.system.SystemFragment;
 import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
@@ -182,7 +183,7 @@ public class HomeActivity extends BaseActivity {
                 JumpUtil.overlay(context, HotActivity.class);
                 break;
             case R.id.main_menu_search:
-
+                JumpUtil.overlay(context, SearechActivity.class);
                 break;
                 default:
                     break;
