@@ -27,10 +27,12 @@
             app:tl_divider_padding="13dp"
             app:tl_indicator_color="@color/theme"
             app:tl_indicator_height="2dp"
+            android:background="@color/white"
             app:tl_textsize="@dimen/sp_14"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/demo_view_pager"
+            android:layout_marginTop="@dimen/dp_5"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
