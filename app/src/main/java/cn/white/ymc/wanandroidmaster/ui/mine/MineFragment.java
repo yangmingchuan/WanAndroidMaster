@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.model.api.cookie.CookiesManager;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity;
@@ -16,6 +17,7 @@ import cn.white.ymc.wanandroidmaster.ui.mine.minelist.adapter.CollectionListAdap
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -75,7 +77,7 @@ public class MineFragment extends BaseFragment {
         imageHead.setEnabled(!haslogin);
     }
 
-    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about,R.id.image_head})
+    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about,R.id.image_head,R.id.tv_logout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
@@ -89,6 +91,12 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.image_head:
                 JumpUtil.overlay(context, LoginActivity.class);
+                break;
+            case R.id.tv_logout:
+                ToastUtil.show(activity, getString(R.string.logout_ok));
+                SharedPreferenceUtil.clear(activity);
+                initData();
+                CookiesManager.clearAllCookies();
                 break;
                 default:
                     break;

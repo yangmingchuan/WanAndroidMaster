@@ -170,17 +170,17 @@
         </RelativeLayout>
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/tv_logout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_40"
-            android:layout_marginEnd="@dimen/dp_110"
-            android:layout_marginStart="@dimen/dp_110"
+            android:layout_marginEnd="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_50"
             android:layout_marginTop="@dimen/dp_50"
-            android:background="@drawable/drawable_fill_blue"
+            android:background="@drawable/drawable_fill_red"
             android:gravity="center"
             android:text="@string/logout"
             android:textColor="@color/white_255"
             android:textSize="@dimen/sp_16" />
     </LinearLayout>
+
 </RelativeLayout>

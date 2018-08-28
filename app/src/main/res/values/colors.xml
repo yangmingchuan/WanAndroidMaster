@@ -10,7 +10,7 @@
     <!--背景色-->
     <color name="transparent">#00000000</color>
     <color name="select">#ff595f</color>
-    <color name="red">#f9382a</color>
+    <color name="red">#FFf9382a</color>
     <color name="disable">#dedede</color>
     <color name="normal">#2000</color>
     <color name="themes">#a66adc6c</color>
