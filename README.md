@@ -1,7 +1,7 @@
 # WanAndroidMaster
 根据 http://www.wanandroid.com 提供api ，编写 包含 Material Design + MVP + Rxjava2 + Retrofit + Glide项目
 
-
+> 如果您需要运行本 Demo ，在将项目 clone 到本地的时候，麻烦删除 res / img 文件夹中的截图，本人测试该部分截图会影响项目运行。
 
 ## 前言
 
