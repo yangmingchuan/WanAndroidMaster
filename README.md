@@ -1,6 +1,8 @@
 # WanAndroidMaster
 根据 http://www.wanandroid.com 提供api ，编写 包含 Material Design + MVP + Rxjava2 + Retrofit + Glide项目
 
+## 下载地址
+http://april.aprilblank.com/download
 
 ## 前言
 > 拉一波 浏览量 本人博客：https://blog.csdn.net/qq_27948659
