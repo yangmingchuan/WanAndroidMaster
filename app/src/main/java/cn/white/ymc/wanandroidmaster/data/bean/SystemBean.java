@@ -84,7 +84,7 @@ public class SystemBean implements Serializable{
          * children : []
          * courseId : 13
          * id : 60
-         * name : Android Studio相关
+         * name : ic_android Studio相关
          * order : 1000
          * parentChapterId : 150
          * visible : 1

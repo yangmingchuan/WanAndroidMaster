@@ -98,7 +98,7 @@ public class HomePageArticleBean {
              * superChapterId : 60
              * superChapterName : 开发环境
              * tags : []
-             * title : Gradle 完整指南（Android）
+             * title : Gradle 完整指南（ic_android）
              * type : 0
              * userId : -1
              * visible : 1

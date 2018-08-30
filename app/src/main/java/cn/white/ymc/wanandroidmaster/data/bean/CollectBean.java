@@ -10,7 +10,7 @@ public class CollectBean {
 
     /**
      * curPage : 1
-     * datas : [{"author":"mylhyl","chapterId":358,"chapterName":"项目基础功能","courseId":13,"desc":"可配置扫描框、线样式 ，生成二维码（文字、联系人）","envelopePic":"http://www.wanandroid.com/blogimgs/6d3b8a9e-42d2-4d1f-a6e1-1f8d90128446.png","id":15000,"link":"http://www.wanandroid.com/blog/show/2174","niceDate":"刚刚","origin":"","originId":3055,"publishTime":1529914227000,"title":"Android-Zxing 开源二维码项目","userId":6853,"visible":0,"zan":0},{"author":"xfhy","chapterId":294,"chapterName":"完整项目","courseId":13,"desc":"1. 我的毕业设计APP端,目前含有的主要功能如下:用户模块,知乎日报,小视频,新闻,天气,笑话,干货集中营.APP端是纯kotlin和组件化的.\r\n2. 我的毕业设计的服务器端: https://github.com/xfhy/LifeHelperServer  采用Spring Boot来进行的快速开发,数据库是mysql,目前有如下功能:收藏,评论,用户:增加,更新头像,签到等,产品,兴趣","envelopePic":"http://www.wanandroid.com/blogimgs/3d414bfe-7296-4695-98e3-ed0692bfc063.png","id":14985,"link":"http://www.wanandroid.com/blog/show/2173","niceDate":"33分钟前","origin":"","originId":3054,"publishTime":1529912201000,"title":"毕业设计(100%纯kotlin组件化开发)-LifeHelper","userId":6853,"visible":0,"zan":0},{"author":"Peter潘的博客","chapterId":245,"chapterName":"集合相关","courseId":13,"desc":"","envelopePic":"","id":14951,"link":"https://www.jianshu.com/p/cc2281b1a6bc","niceDate":"47分钟前","origin":"","originId":3001,"publishTime":1529911393000,"title":"【Java并发编程】&mdash;&ndash;&ldquo;J.U.C&rdquo;：LinkedBlockingQueue","userId":6853,"visible":0,"zan":0}]
+     * datas : [{"author":"mylhyl","chapterId":358,"chapterName":"项目基础功能","courseId":13,"desc":"可配置扫描框、线样式 ，生成二维码（文字、联系人）","envelopePic":"http://www.wanandroid.com/blogimgs/6d3b8a9e-42d2-4d1f-a6e1-1f8d90128446.png","id":15000,"link":"http://www.wanandroid.com/blog/show/2174","niceDate":"刚刚","origin":"","originId":3055,"publishTime":1529914227000,"title":"ic_android-Zxing 开源二维码项目","userId":6853,"visible":0,"zan":0},{"author":"xfhy","chapterId":294,"chapterName":"完整项目","courseId":13,"desc":"1. 我的毕业设计APP端,目前含有的主要功能如下:用户模块,知乎日报,小视频,新闻,天气,笑话,干货集中营.APP端是纯kotlin和组件化的.\r\n2. 我的毕业设计的服务器端: https://github.com/xfhy/LifeHelperServer  采用Spring Boot来进行的快速开发,数据库是mysql,目前有如下功能:收藏,评论,用户:增加,更新头像,签到等,产品,兴趣","envelopePic":"http://www.wanandroid.com/blogimgs/3d414bfe-7296-4695-98e3-ed0692bfc063.png","id":14985,"link":"http://www.wanandroid.com/blog/show/2173","niceDate":"33分钟前","origin":"","originId":3054,"publishTime":1529912201000,"title":"毕业设计(100%纯kotlin组件化开发)-LifeHelper","userId":6853,"visible":0,"zan":0},{"author":"Peter潘的博客","chapterId":245,"chapterName":"集合相关","courseId":13,"desc":"","envelopePic":"","id":14951,"link":"https://www.jianshu.com/p/cc2281b1a6bc","niceDate":"47分钟前","origin":"","originId":3001,"publishTime":1529911393000,"title":"【Java并发编程】&mdash;&ndash;&ldquo;J.U.C&rdquo;：LinkedBlockingQueue","userId":6853,"visible":0,"zan":0}]
      * offset : 0
      * over : true
      * pageCount : 1
@@ -96,7 +96,7 @@ public class CollectBean {
          * origin :
          * originId : 3055
          * publishTime : 1529914227000
-         * title : Android-Zxing 开源二维码项目
+         * title : ic_android-Zxing 开源二维码项目
          * userId : 6853
          * visible : 0
          * zan : 0
