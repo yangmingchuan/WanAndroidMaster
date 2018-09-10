@@ -31,6 +31,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Base application theme. -->
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/splash</item>   //闪屏页图片
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!-- 设置 -->
     <style name="AppTheme_toolbar" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
