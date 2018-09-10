@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
+import cn.white.ymc.wanandroidmaster.ui.home.HomeActivity;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import rx.Observable;
@@ -41,7 +42,7 @@ public class SplashActivity extends BaseActivity {
                 .subscribe(new Action1<Long>() {
                     @Override
                     public void call(Long aLong) {
-                        JumpUtil.overlay(SplashActivity.this, LoginActivity.class);
+                        JumpUtil.overlay(SplashActivity.this, HomeActivity.class);
                         finish();
                     }
                 });
