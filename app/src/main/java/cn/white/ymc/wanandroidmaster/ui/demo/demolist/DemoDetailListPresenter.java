@@ -1,16 +1,15 @@
 package cn.white.ymc.wanandroidmaster.ui.demo.demolist;
 
-import java.util.List;
-
 import cn.white.ymc.wanandroidmaster.base.contract.BasePresenter;
 import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 项目
@@ -50,12 +49,16 @@ public class DemoDetailListPresenter extends BasePresenter<DemoDetailListContrac
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<DemoDetailListBean>>() {
                     @Override
-                    public void onCompleted() {
+                    public void onError(Throwable e) {
+                        view.getDemoListErr(e.getMessage());
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        view.getDemoListErr(e.getMessage());
+                    public void onComplete() {
+                    }
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

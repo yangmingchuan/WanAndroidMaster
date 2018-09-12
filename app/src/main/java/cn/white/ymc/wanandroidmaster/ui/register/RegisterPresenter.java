@@ -5,9 +5,10 @@ import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 注册 presenter 层
@@ -35,12 +36,18 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<UserInfo>>() {
                     @Override
-                    public void onCompleted() {
+                    public void onError(Throwable e) {
+                        view.registerErr(e.getMessage());
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        view.registerErr(e.getMessage());
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

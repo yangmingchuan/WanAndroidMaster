@@ -5,9 +5,10 @@ import cn.white.ymc.wanandroidmaster.data.BaseResp;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 首页详细界面 presenter 层
@@ -39,11 +40,18 @@ public class HomeDetailPresenter extends BasePresenter<HomeDetailContract.view> 
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp>() {
                     @Override
-                    public void onCompleted() {
-                    }
-                    @Override
                     public void onError(Throwable e) {
                         view.collectArticleErr(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override
@@ -69,11 +77,18 @@ public class HomeDetailPresenter extends BasePresenter<HomeDetailContract.view> 
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp>() {
                     @Override
-                    public void onCompleted() {
-                    }
-                    @Override
                     public void onError(Throwable e) {
                         view.cancelCollectArticleErr(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

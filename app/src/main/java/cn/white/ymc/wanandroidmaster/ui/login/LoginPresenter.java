@@ -7,9 +7,10 @@ import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 登陆 presenter 层
@@ -37,14 +38,20 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<UserInfo>>() {
                     @Override
-                    public void onCompleted() {
-                    }
-
-                    @Override
                     public void onError(Throwable e) {
                         if (e.getMessage() != null) {
                             view.loginErr(e.getMessage());
                         }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

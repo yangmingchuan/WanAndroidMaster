@@ -8,9 +8,10 @@ import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 项目 presenter 层
@@ -36,12 +37,18 @@ public class DemoPresenter extends BasePresenter<DemoContract.View> implements D
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<List<DemoTitleBean>>>() {
                     @Override
-                    public void onCompleted() {
+                    public void onError(Throwable e) {
+                        view.getDemoResultErr(e.getMessage());
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        view.getDemoResultErr(e.getMessage());
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

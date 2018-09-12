@@ -7,9 +7,10 @@ import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 最热网站 presenter 层 实现
@@ -37,11 +38,18 @@ public class HotPresenter extends BasePresenter<HotContract.View> implements Hot
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<List<HotBean>>>() {
                     @Override
-                    public void onCompleted() {
-                    }
-                    @Override
                     public void onError(Throwable e) {
                         view.getHotResultErr(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override

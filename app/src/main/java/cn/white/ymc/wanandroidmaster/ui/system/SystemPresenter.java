@@ -8,9 +8,10 @@ import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 体系 presenter 层
@@ -43,11 +44,18 @@ public class SystemPresenter extends BasePresenter<SystemContract.View> implemen
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<List<SystemBean>>>() {
                     @Override
-                    public void onCompleted() {
-                    }
-                    @Override
                     public void onError(Throwable e) {
                         view.getSystemListErr(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override
