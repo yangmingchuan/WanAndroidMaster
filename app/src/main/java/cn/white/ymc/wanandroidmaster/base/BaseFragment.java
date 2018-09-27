@@ -31,7 +31,6 @@ import cn.white.ymc.wanandroidmaster.util.network.NetWorkBroadcastReceiver;
  */
 
 public abstract class BaseFragment extends Fragment implements BaseView, NetWorkBroadcastReceiver.NetEvent{
-    public View rootView;
     protected Activity activity;
     protected MyApplication context;
     private Unbinder bind;
@@ -67,7 +66,6 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rootView = view;
         activity = getActivity();
         context = MyApplication.getInstance();
         bind = ButterKnife.bind(this, view);
@@ -90,8 +88,6 @@ public abstract class BaseFragment extends Fragment implements BaseView, NetWork
         bind.unbind();
         super.onDestroy();
     }
-
-
 
     /**
      * 获取 布局信息
