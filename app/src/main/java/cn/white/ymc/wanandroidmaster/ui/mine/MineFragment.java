@@ -4,7 +4,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
@@ -13,7 +15,6 @@ import cn.white.ymc.wanandroidmaster.model.api.cookie.CookiesManager;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity;
-import cn.white.ymc.wanandroidmaster.ui.mine.minelist.adapter.CollectionListAdapter;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
@@ -50,6 +51,8 @@ public class MineFragment extends BaseFragment {
     RelativeLayout viewAbout;
     @BindView(R.id.tv_logout)
     TextView tvLogout;
+    @BindView(R.id.view_wx)
+    RelativeLayout viewWx;
 
     private boolean haslogin;
     private String userName;
@@ -71,20 +74,23 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN,false);
-        userName = (String) SharedPreferenceUtil.get(context,ConstantUtil.USERNAME,ConstantUtil.USERNAME);
-        tvUsername.setText(haslogin? userName : getString(R.string.click_head_login));
+        haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN, false);
+        userName = (String) SharedPreferenceUtil.get(context, ConstantUtil.USERNAME, ConstantUtil.USERNAME);
+        tvUsername.setText(haslogin ? userName : getString(R.string.click_head_login));
         imageHead.setEnabled(!haslogin);
     }
 
-    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about,R.id.image_head,R.id.tv_logout})
+    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about, R.id.image_head, R.id.tv_logout,R.id.view_wx})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
                 JumpUtil.overlay(context, CollectionListActivity.class);
                 break;
+            case R.id.view_wx:
+                JumpUtil.overlay(context, CollectionListActivity.class);
+                break;
             case R.id.view_todo:
-                ToastUtil.show(activity, "将在后续以 kotlin mvp app 的方式展示");
+                ToastUtil.show(activity, getString(R.string.todo_err_msg));
                 break;
             case R.id.view_about:
                 JumpUtil.overlay(context, AboutMeActivity.class);
@@ -98,8 +104,9 @@ public class MineFragment extends BaseFragment {
                 initData();
                 CookiesManager.clearAllCookies();
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
     }
+
 }

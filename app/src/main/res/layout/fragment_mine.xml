@@ -94,6 +94,46 @@
             android:layout_height="@dimen/dp_1"
             android:background="@color/white_30" />
 
+        <!--微信-->
+        <RelativeLayout
+            android:id="@+id/view_wx"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_46"
+            android:padding="@dimen/dp_10"
+            android:background="@color/white_255">
+
+            <ImageView
+                android:id="@+id/image_wx"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_16"
+                app:srcCompat="@drawable/ic_wx_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_toEndOf="@+id/image_wx"
+                android:text="@string/my_collect"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/homepage_color" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp_20"
+                app:srcCompat="@drawable/icon_arrow_right" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/white_30" />
+
         <!--to do-->
         <RelativeLayout
             android:id="@+id/view_todo"

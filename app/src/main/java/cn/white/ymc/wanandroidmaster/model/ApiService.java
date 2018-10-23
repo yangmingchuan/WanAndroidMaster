@@ -115,7 +115,20 @@ public interface ApiService {
     Observable<BaseResp<List<HotKeyBean>>> getHitKeyBean();
 
 
+    /**
+     *
+     * 查询搜索结果
+     * @param page
+     * @param key
+     * @return
+     */
     @POST("/article/query/{page}/json")
     Observable<BaseResp<HomePageArticleBean>> getSearechResult(@Path("page") int page ,@Query("k")String key);
 
+    /**
+     * 获取 微信公众号列表
+     * @return
+     */
+    @GET("/wxarticle/chapters/json")
+    Observable<List<List<HotKeyBean>>> getWXList();
 }
