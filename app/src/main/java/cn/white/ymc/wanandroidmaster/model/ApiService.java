@@ -130,5 +130,5 @@ public interface ApiService {
      * @return
      */
     @GET("/wxarticle/chapters/json")
-    Observable<List<List<HotKeyBean>>> getWXList();
+    Observable<BaseResp<HotKeyBean>> getWXList();
 }
