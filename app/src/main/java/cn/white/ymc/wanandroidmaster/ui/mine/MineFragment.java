@@ -15,6 +15,7 @@ import cn.white.ymc.wanandroidmaster.model.api.cookie.CookiesManager;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity;
+import cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.WXListActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
@@ -87,7 +88,7 @@ public class MineFragment extends BaseFragment {
                 JumpUtil.overlay(context, CollectionListActivity.class);
                 break;
             case R.id.view_wx:
-                JumpUtil.overlay(context, CollectionListActivity.class);
+                JumpUtil.overlay(context, WXListActivity.class);
                 break;
             case R.id.view_todo:
                 ToastUtil.show(activity, getString(R.string.todo_err_msg));

@@ -12,6 +12,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
+import cn.white.ymc.wanandroidmaster.data.bean.WxListBean;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -130,5 +131,5 @@ public interface ApiService {
      * @return
      */
     @GET("/wxarticle/chapters/json")
-    Observable<BaseResp<HotKeyBean>> getWXList();
+    Observable<BaseResp<List<WxListBean>>> getWXList();
 }

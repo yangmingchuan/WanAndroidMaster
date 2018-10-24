@@ -24,7 +24,7 @@
 
         <activity
             android:name=".ui.home.HomeActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <!-- 冷启动 优化 : 1.替换透明主题 2，设置背景图片 -->
         <activity
             android:name=".ui.SplashActivity"
@@ -47,7 +47,8 @@
         <activity android:name=".ui.home.hot.HotActivity" />
         <activity android:name=".ui.home.search.SearechActivity" />
         <activity android:name=".ui.home.search.searechdetail.SearechDetailActivity" />
-        <activity android:name=".ui.mine.minelist.wx.WXListActivity"></activity>
+        <activity android:name=".ui.mine.minelist.wx.WXListActivity" />
+        <activity android:name=".ui.mine.minelist.wx.wxpublic.WxPublicListActivity"></activity>
     </application>
 
 </manifest>

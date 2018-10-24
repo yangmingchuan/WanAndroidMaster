@@ -116,7 +116,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_wx"
-                android:text="@string/my_collect"
+                android:text="@string/wx_list"
                 android:textSize="@dimen/sp_16"
                 android:textColor="@color/homepage_color" />
 

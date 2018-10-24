@@ -37,10 +37,6 @@
             android:layout_height="match_parent"
             android:background="@color/grey" />
 
-        <com.scwang.smartrefresh.header.TaurusHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </android.support.constraint.ConstraintLayout>
