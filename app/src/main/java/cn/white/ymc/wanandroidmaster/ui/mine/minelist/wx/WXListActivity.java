@@ -1,11 +1,8 @@
 package cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +21,6 @@ import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseResultActivity;
 import cn.white.ymc.wanandroidmaster.data.bean.WxListBean;
-import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.wxpublic.WxPublicListActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 

@@ -1,6 +1,7 @@
 package cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.wxpublic;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +42,7 @@ public class WxPublicListActivity extends BaseResultActivity implements WxPublic
 
     private WxPublicContract.Presenter presenter;
     private List<WxPublicListBean.DatasBean> datasBeanList;
+    private WxPublicAdapter adapter;
     private int page = 1;
     private int publicId;
     private String title;
@@ -63,14 +68,30 @@ public class WxPublicListActivity extends BaseResultActivity implements WxPublic
                 finish();
             }
         });
+        normalView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                presenter.onRefresh();
+                refreshLayout.finishRefresh(1000);
+            }
+        });
+        normalView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                presenter.onLoadMore();
+                refreshLayout.finishLoadMore(1000);
+            }
+        });
     }
 
     @Override
     protected void initData() {
         showLoading();
         datasBeanList = new ArrayList<>();
+        adapter = new WxPublicAdapter(R.layout.item_homepage,datasBeanList);
         presenter = new WxPublicPresenter(this);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
         presenter.getWxPublicListResult(publicId, page);
     }
 
