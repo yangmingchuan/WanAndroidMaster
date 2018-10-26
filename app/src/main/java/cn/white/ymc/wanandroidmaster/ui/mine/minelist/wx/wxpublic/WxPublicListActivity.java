@@ -98,12 +98,16 @@ public class WxPublicListActivity extends BaseResultActivity implements WxPublic
     @Override
     public void reload() {
         super.reload();
-
+        presenter.onRefresh();
     }
 
     @Override
     public void getWxPublicListOk(WxPublicListBean bean, boolean hasRefresh) {
+        if(hasRefresh){
 
+        }else{
+
+        }
     }
 
     @Override

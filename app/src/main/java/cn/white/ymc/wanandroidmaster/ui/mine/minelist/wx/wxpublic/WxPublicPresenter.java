@@ -15,6 +15,8 @@ import cn.white.ymc.wanandroidmaster.base.contract.BasePresenter;
 public class WxPublicPresenter extends BasePresenter<WxPublicContract.View> implements WxPublicContract.Presenter{
 
     private WxPublicContract.View view;
+    private int wxId = -1;
+    private int wxPage = -1;
 
     public WxPublicPresenter(WxPublicContract.View view) {
         this.view = view;
@@ -22,15 +24,22 @@ public class WxPublicPresenter extends BasePresenter<WxPublicContract.View> impl
 
     @Override
     public void onRefresh() {
+        if(wxId !=-1 && wxPage != -1){
+            getWxPublicListResult(wxId,1);
+        }
     }
 
     @Override
     public void onLoadMore() {
-
+        if(wxId !=-1 && wxPage != -1){
+            getWxPublicListResult(wxId,1);
+        }
     }
 
     @Override
     public void getWxPublicListResult(int id, int page) {
+        this.wxId = id;
+        this.wxPage = page;
 
     }
 }
