@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx;
+package cn.white.ymc.wanandroidmaster.ui.wx;
 
 import java.util.List;
 
@@ -14,25 +14,25 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- *  微信列表获取
+ * 微信公众号 presenter
  *
- * @packageName: cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx
- * @fileName: WXListPresenter
- * @date: 2018/10/24  14:05
+ * @packageName: cn.white.ymc.wanandroidmaster.ui.wx
+ * @fileName: WxPresenter
+ * @date: 2018/11/1  15:46
  * @author: ymc
  * @QQ:745612618
  */
 
-public class WXListPresenter extends BasePresenter<WXListContract.view> implements WXListContract.presenter {
+public class WxPresenter extends BasePresenter<WxContract.View> implements WxContract.Presenter{
 
-    private WXListContract.view view;
+    private WxContract.View view;
 
-    public WXListPresenter(WXListContract.view view) {
+    public WxPresenter(WxContract.View view) {
         this.view = view;
     }
 
     @Override
-    public void getWXList() {
+    public void getWxTitleList() {
         ApiStore.createApi(ApiService.class)
                 .getWXList()
                 .subscribeOn(Schedulers.io())
@@ -45,15 +45,15 @@ public class WXListPresenter extends BasePresenter<WXListContract.view> implemen
                     @Override
                     public void onNext(BaseResp<List<WxListBean>> listBaseResp) {
                         if(listBaseResp.getErrorCode() == ConstantUtil.REQUEST_SUCCESS){
-                            view.getWXListResultOk(listBaseResp.data);
+                            view.getWxResultOK(listBaseResp.data);
                         }else if(listBaseResp.getErrorCode() == ConstantUtil.REQUEST_ERROR){
-                            view.getWXListErr(listBaseResp.getErrorMsg());
+                            view.getWxResultErr(listBaseResp.getErrorMsg());
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        view.getWXListErr(e.getMessage());
+                        view.getWxResultErr(e.getMessage());
                     }
 
                     @Override

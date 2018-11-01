@@ -15,7 +15,6 @@ import cn.white.ymc.wanandroidmaster.model.api.cookie.CookiesManager;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.CollectionListActivity;
-import cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.WXListActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
 import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;

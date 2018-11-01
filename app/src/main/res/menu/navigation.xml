@@ -12,6 +12,11 @@
         android:title="@string/title_system" />
 
     <item
+        android:id="@+id/navigation_wx"
+        android:icon="@drawable/ic_wx_title"
+        android:title="@string/title_system" />
+
+    <item
         android:id="@+id/navigation_demo"
         android:icon="@drawable/ic_create_new_folder_black_24dp"
         android:title="@string/title_demo" />
