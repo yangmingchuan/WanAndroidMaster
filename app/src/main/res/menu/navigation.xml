@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_wx"
         android:icon="@drawable/ic_wx_title"
-        android:title="@string/title_system" />
+        android:title="@string/title_wx" />
 
     <item
         android:id="@+id/navigation_demo"

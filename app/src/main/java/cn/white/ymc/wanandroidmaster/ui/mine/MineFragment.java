@@ -51,8 +51,6 @@ public class MineFragment extends BaseFragment {
     RelativeLayout viewAbout;
     @BindView(R.id.tv_logout)
     TextView tvLogout;
-    @BindView(R.id.view_wx)
-    RelativeLayout viewWx;
 
     private boolean haslogin;
     private String userName;
@@ -80,14 +78,11 @@ public class MineFragment extends BaseFragment {
         imageHead.setEnabled(!haslogin);
     }
 
-    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about, R.id.image_head, R.id.tv_logout,R.id.view_wx})
+    @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about, R.id.image_head, R.id.tv_logout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.view_collect:
                 JumpUtil.overlay(context, CollectionListActivity.class);
-                break;
-            case R.id.view_wx:
-                JumpUtil.overlay(context, WXListActivity.class);
                 break;
             case R.id.view_todo:
                 ToastUtil.show(activity, getString(R.string.todo_err_msg));

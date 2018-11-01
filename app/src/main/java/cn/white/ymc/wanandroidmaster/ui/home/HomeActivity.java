@@ -27,6 +27,7 @@ import cn.white.ymc.wanandroidmaster.ui.home.hot.HotActivity;
 import cn.white.ymc.wanandroidmaster.ui.home.search.SearechActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.MineFragment;
 import cn.white.ymc.wanandroidmaster.ui.system.SystemFragment;
+import cn.white.ymc.wanandroidmaster.ui.wx.WxFragment;
 import cn.white.ymc.wanandroidmaster.util.BottomNavigationViewHelper;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
@@ -71,6 +72,10 @@ public class HomeActivity extends BaseActivity {
                 case R.id.navigation_mine:
                     floatButton.setVisibility(View.GONE);
                     selectFragment(3);
+                    return true;
+                case R.id.navigation_wx:
+                    floatButton.setVisibility(View.GONE);
+                    selectFragment(4);
                     return true;
                 default:
                     break;
@@ -163,6 +168,7 @@ public class HomeActivity extends BaseActivity {
         fragmentList.add(SystemFragment.getInstance());
         fragmentList.add(DemoFragment.getInstance());
         fragmentList.add(MineFragment.getInstance());
+        fragmentList.add(WxFragment.getInstance());
     }
 
 

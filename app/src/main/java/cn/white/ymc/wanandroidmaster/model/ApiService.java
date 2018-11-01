@@ -13,6 +13,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.data.bean.WxListBean;
+import cn.white.ymc.wanandroidmaster.data.bean.WxPublicListBean;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -132,4 +133,10 @@ public interface ApiService {
      */
     @GET("/wxarticle/chapters/json")
     Observable<BaseResp<List<WxListBean>>> getWXList();
+
+    /**
+     * 获取 微信公众号详细信息列表数据
+     */
+    @GET("wxarticle/list/{id}/{page}/json")
+    Observable<BaseResp<WxPublicListBean>> getWXDetailList(@Path("page") int page ,@Path("id")int id);
 }

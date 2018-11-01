@@ -47,7 +47,6 @@
         <activity android:name=".ui.home.hot.HotActivity" />
         <activity android:name=".ui.home.search.SearechActivity" />
         <activity android:name=".ui.home.search.searechdetail.SearechDetailActivity" />
-        <activity android:name=".ui.mine.minelist.wx.wxpublic.WxPublicListActivity"></activity>
     </application>
 
 </manifest>

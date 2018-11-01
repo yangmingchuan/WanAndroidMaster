@@ -10,10 +10,16 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
+import cn.white.ymc.wanandroidmaster.data.bean.WxPublicListBean;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
 /**
  * 微信详情界面
@@ -25,7 +31,7 @@ import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
  * @QQ:745612618
  */
 
-public class WxDetailFragment extends BaseFragment {
+public class WxDetailFragment extends BaseFragment implements WxDetailContract.View{
 
     @BindView(R.id.rv)
     RecyclerView rv;
@@ -33,6 +39,8 @@ public class WxDetailFragment extends BaseFragment {
     SmartRefreshLayout normalView;
 
     private WxDetailPresenter presenter;
+    List<WxPublicListBean.DatasBean> datasBeanList;
+    WxDetailAdapter adapter;
 
     /**
      *  id 编号
@@ -55,27 +63,67 @@ public class WxDetailFragment extends BaseFragment {
     @Override
     public void reload() {
         super.reload();
-
+        if(id != -1){
+            presenter.getWxPublicListResult(id,1);
+        }
     }
 
     @Override
-    protected void initData() {
+    protected void initUI() {
+        super.initUI();
         normalView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 presenter.onRefresh();
-                refreshLayout.finishRefresh(1200);
+                refreshLayout.finishRefresh(1000);
             }
         });
         normalView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 presenter.onLoadMore();
-                refreshLayout.finishLoadMore(1200);
+                refreshLayout.finishLoadMore(1000);
             }
         });
         showLoading();
         rv.setLayoutManager(new LinearLayoutManager(activity));
     }
 
+    @Override
+    protected void initData() {
+        presenter = new WxDetailPresenter(this);
+        datasBeanList = new ArrayList<>();
+        adapter = new WxDetailAdapter(R.layout.item_homepage,datasBeanList);
+        rv.setAdapter(adapter);
+        if(getArguments()!=null){
+            id = getArguments().getInt(ConstantUtil.WX_FRAGMENT_ID);
+            presenter.getWxPublicListResult(id,1);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void getWxPublicListOk(WxPublicListBean beans, boolean hasRefresh) {
+        if(id==-1 && adapter==null){
+            return;
+        }
+        if(hasRefresh){
+            datasBeanList.clear();
+            datasBeanList.addAll(beans.getDatas());
+            adapter.replaceData(beans.getDatas());
+        }else{
+            if(beans.getDatas().size()>0){
+                datasBeanList.addAll(beans.getDatas());
+                adapter.addData(beans.getDatas());
+            }else{
+                ToastUtil.show(context,getString(R.string.load_more_no_data));
+            }
+        }
+        showNormal();
+    }
+
+    @Override
+    public void getWxPublicErr(String err) {
+        showError(err);
+    }
 }

@@ -3,7 +3,6 @@ package cn.white.ymc.wanandroidmaster.ui.wx.wxdetail;
 import cn.white.ymc.wanandroidmaster.base.contract.BasePre;
 import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
 import cn.white.ymc.wanandroidmaster.data.bean.WxPublicListBean;
-import cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.wxpublic.WxPublicContract;
 
 /**
  * @packageName: cn.white.ymc.wanandroidmaster.ui.wx.wxdetail

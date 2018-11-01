@@ -1,4 +1,4 @@
-package cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.wxpublic;
+package cn.white.ymc.wanandroidmaster.ui.wx.wxdetail;
 
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -16,15 +16,15 @@ import cn.white.ymc.wanandroidmaster.data.bean.WxPublicListBean;
  *  微信公众号文章 adapter
  *
  * @packageName: cn.white.ymc.wanandroidmaster.ui.mine.minelist.wx.wxpublic
- * @fileName: WxPublicAdapter
+ * @fileName: WxDetailAdapter
  * @date: 2018/10/25  11:23
  * @author: ymc
  * @QQ:745612618
  */
 
-public class WxPublicAdapter extends BaseQuickAdapter<WxPublicListBean.DatasBean,BaseViewHolder>{
+public class WxDetailAdapter extends BaseQuickAdapter<WxPublicListBean.DatasBean,BaseViewHolder>{
 
-    public WxPublicAdapter(int layoutResId, @Nullable List<WxPublicListBean.DatasBean> data) {
+    public WxDetailAdapter(int layoutResId, @Nullable List<WxPublicListBean.DatasBean> data) {
         super(layoutResId, data);
     }
 

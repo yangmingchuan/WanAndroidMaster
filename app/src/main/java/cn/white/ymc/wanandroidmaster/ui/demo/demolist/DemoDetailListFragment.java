@@ -16,7 +16,6 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +23,6 @@ import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
-import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.ui.demo.demolist.adapter.DemoDetailListAdapter;
 import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
@@ -82,14 +80,14 @@ public class DemoDetailListFragment extends BaseFragment implements DemoDetailLi
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 presenter.autoRefresh();
-                refreshLayout.finishRefresh(1200);
+                refreshLayout.finishRefresh(1000);
             }
         });
         normalView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 presenter.loadMore();
-                refreshLayout.finishLoadMore(1200);
+                refreshLayout.finishLoadMore(1000);
             }
         });
         showLoading();
@@ -100,12 +98,12 @@ public class DemoDetailListFragment extends BaseFragment implements DemoDetailLi
     protected void initData() {
         presenter = new DemoDetailListPresenter(this);
         demoDetailListBeans = new LinkedList<>();
+        adapter = new DemoDetailListAdapter(R.layout.item_demo_list,demoDetailListBeans);
+        adapter.setOnItemClickListener(this);
         if(getArguments()!=null){
             id = getArguments().getInt(ConstantUtil.DEMO_FRAGMENT_ID);
             presenter.getDemoList(1,id);
         }
-        adapter = new DemoDetailListAdapter(R.layout.item_demo_list,demoDetailListBeans);
-        adapter.setOnItemClickListener(this);
         rv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
