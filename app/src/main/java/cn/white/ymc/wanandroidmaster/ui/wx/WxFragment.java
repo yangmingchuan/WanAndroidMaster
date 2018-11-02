@@ -13,6 +13,7 @@ import butterknife.BindView;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.data.bean.WxListBean;
+import cn.white.ymc.wanandroidmaster.ui.demo.demolist.DemoDetailListFragment;
 import cn.white.ymc.wanandroidmaster.ui.wx.wxdetail.WxDetailFragment;
 
 /**
@@ -89,5 +90,13 @@ public class WxFragment extends BaseFragment implements WxContract.View{
     public void reload() {
         super.reload();
         presenter.getWxTitleList();
+    }
+
+    /**
+     * 查找 子 fragment 回到顶部
+     */
+    public void scrollChildToTop(){
+        WxDetailFragment currentFragment = adapter.getCurrentFragment();
+        currentFragment.scrollToTop();
     }
 }

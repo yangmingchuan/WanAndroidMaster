@@ -74,7 +74,7 @@ public class HomeActivity extends BaseActivity {
                     selectFragment(3);
                     return true;
                 case R.id.navigation_wx:
-                    floatButton.setVisibility(View.GONE);
+                    floatButton.setVisibility(View.VISIBLE);
                     selectFragment(4);
                     return true;
                 default:
@@ -134,6 +134,8 @@ public class HomeActivity extends BaseActivity {
             case R.id.float_button:
                 scrollToTop();
                 break;
+                default:
+                    break;
         }
     }
 
@@ -153,6 +155,10 @@ public class HomeActivity extends BaseActivity {
             case 2:
                 DemoFragment demoFragment = (DemoFragment) fragmentList.get(2);
                 demoFragment.scrollChildToTop();
+                break;
+            case 4:
+                WxFragment wxFragment = (WxFragment) fragmentList.get(4);
+                wxFragment.scrollChildToTop();
                 break;
                 default:
                     break;

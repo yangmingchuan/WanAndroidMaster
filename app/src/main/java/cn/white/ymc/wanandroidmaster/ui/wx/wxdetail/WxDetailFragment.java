@@ -1,10 +1,16 @@
 package cn.white.ymc.wanandroidmaster.ui.wx.wxdetail;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -18,6 +24,7 @@ import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
 import cn.white.ymc.wanandroidmaster.data.bean.DemoDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.WxPublicListBean;
+import cn.white.ymc.wanandroidmaster.ui.home.homedetail.HomeDetailActivity;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
 import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 
@@ -31,7 +38,7 @@ import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
  * @QQ:745612618
  */
 
-public class WxDetailFragment extends BaseFragment implements WxDetailContract.View{
+public class WxDetailFragment extends BaseFragment implements WxDetailContract.View,BaseQuickAdapter.OnItemClickListener{
 
     @BindView(R.id.rv)
     RecyclerView rv;
@@ -95,6 +102,7 @@ public class WxDetailFragment extends BaseFragment implements WxDetailContract.V
         datasBeanList = new ArrayList<>();
         adapter = new WxDetailAdapter(R.layout.item_homepage,datasBeanList);
         rv.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
         if(getArguments()!=null){
             id = getArguments().getInt(ConstantUtil.WX_FRAGMENT_ID);
             presenter.getWxPublicListResult(id,1);
@@ -125,5 +133,33 @@ public class WxDetailFragment extends BaseFragment implements WxDetailContract.V
     @Override
     public void getWxPublicErr(String err) {
         showError(err);
+    }
+
+    /**
+     * 滚动到 顶部
+     */
+    public void scrollToTop(){
+        rv.smoothScrollToPosition(0);
+    }
+
+    /**
+     * item 跳转事件
+     * @param madapter
+     * @param view
+     * @param position
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onItemClick(BaseQuickAdapter madapter, View view, int position) {
+        WxPublicListBean.DatasBean bean = adapter.getData().get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt(ConstantUtil.HOME_DETAIL_ID,bean.getId());
+        bundle.putString(ConstantUtil.HOME_DETAIL_PATH,bean.getLink());
+        bundle.putString(ConstantUtil.HOME_DETAIL_TITLE,bean.getTitle());
+        bundle.putBoolean(ConstantUtil.HOME_DETAIL_IS_COLLECT,bean.isCollect());
+        // webview 和跳转的界面布局 transitionName 一定要相同
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.web_view));
+        startActivity(new Intent(activity, HomeDetailActivity.class).putExtras(bundle), options.toBundle());
+
     }
 }
