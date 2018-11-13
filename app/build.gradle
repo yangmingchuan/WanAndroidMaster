@@ -1,5 +1,26 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'walle'
+apply from: 'multlple-channel.gradle'
+
+def keystoreFilepath = ''
+def keystorePSW = ''
+def keystoreAlias = ''
+def keystoreAliasPSW = ''
+// default keystore file, PLZ config file path in local.properties
+def keyfile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if (keystoreFilepath) {
+    keystorePSW = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}
 
 android {
     compileSdkVersion 27
@@ -12,10 +33,32 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+
+    signingConfigs {
+        release {
+            storeFile keyfile//签名文件路径
+            storePassword keystorePSW
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW  //签名密码
+            println("====== signingConfigs.release ======")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名文件存在，则签名
+            if (keyfile.exists()) {
+                println("WITH -> buildTypes -> release: using jks key")
+                signingConfig signingConfigs.release
+            }else {
+                println("WITH -> buildTypes -> release: using default key")
+            }
+
         }
     }
 }
@@ -58,4 +101,6 @@ dependencies {
     // webview
 
     compile 'com.just.agentweb:agentweb:4.0.2'
+    // walle
+    compile 'com.meituan.android.walle:library:1.1.6'
 }
