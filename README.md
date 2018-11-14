@@ -8,6 +8,11 @@ http://april.aprilblank.com/download
 
 
 ## 版本迭代
+>v1.1.1
+添加walle 多渠道打包
+
+
+
 > v1.1.0
 > 1.添加微信公众号模块
 
