@@ -51,6 +51,10 @@ http://april.aprilblank.com/download
 
 ![image](https://github.com/yangmingchuan/WanAndroidMaster/blob/master/app/src/main/res/drawable/wanandroid2.png)
 
+3. 微信公众号界面
+
+![image](https://github.com/yangmingchuan/WanAndroidMaster/blob/master/app/src/main/res/drawable/wanandroidwx.png)
+
 3.项目界面
 
 ![image](https://github.com/yangmingchuan/WanAndroidMaster/blob/master/app/src/main/res/drawable/wanandroid3.png)
