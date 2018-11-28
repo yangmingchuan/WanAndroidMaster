@@ -1,5 +1,7 @@
 package cn.white.ymc.wanandroidmaster.ui.home;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -15,6 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Rationale;
+import com.yanzhenjie.permission.RequestExecutor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +29,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
+import cn.white.ymc.wanandroidmaster.ui.SplashActivity;
 import cn.white.ymc.wanandroidmaster.ui.demo.DemoFragment;
 import cn.white.ymc.wanandroidmaster.ui.home.hot.HotActivity;
 import cn.white.ymc.wanandroidmaster.ui.home.search.SearechActivity;
@@ -93,6 +101,7 @@ public class HomeActivity extends BaseActivity {
     protected void initData() {
         initFragment();
         selectFragment(0);
+        requestPermission();
     }
 
     @Override
@@ -220,6 +229,41 @@ public class HomeActivity extends BaseActivity {
             finish();
             return true;
         }
+    }
+
+
+    private void requestPermission() {
+        AndPermission.with(this)
+                .permission(Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                // 准备方法，和 okhttp 的拦截器一样，在请求权限之前先运行改方法，已经拥有权限不会触发该方法
+                .rationale(new Rationale() {
+                    @Override
+                    public void showRationale(Context context, List<String> permissions, RequestExecutor executor) {
+                        // 此处可以选择显示提示弹窗
+                        executor.execute();
+                    }
+                })
+                .onGranted(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        ToastUtil.show(activity,"用户给权限啦");
+                    }
+                })
+                .onDenied(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        if (AndPermission.hasAlwaysDeniedPermission(activity, permissions)) {
+                            // 打开权限设置页
+                            AndPermission.permissionSetting(activity).execute();
+                            return;
+                        }
+                        ToastUtil.show(activity,"用户拒绝权限");
+                    }
+                }).start();
     }
 
 }

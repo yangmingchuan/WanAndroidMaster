@@ -84,7 +84,7 @@ public class LogcatHelper {
         LogDumper(String pid, String dir) {
             mPID = pid;
             try {
-                out = new FileOutputStream(new File(dir, "DS-"+ MyDate.getFileName() + ".log"));
+                out = new FileOutputStream(new File(dir, "wanandroid-"+ MyDate.getFileName() + ".log"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

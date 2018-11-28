@@ -1,9 +1,16 @@
 package cn.white.ymc.wanandroidmaster.ui;
 
+import android.Manifest;
+import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Rationale;
+import com.yanzhenjie.permission.RequestExecutor;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -11,6 +18,7 @@ import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseActivity;
 import cn.white.ymc.wanandroidmaster.ui.home.HomeActivity;
 import cn.white.ymc.wanandroidmaster.util.JumpUtil;
+import cn.white.ymc.wanandroidmaster.util.toast.ToastUtil;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.internal.observers.DisposableLambdaObserver;
@@ -61,6 +69,9 @@ public class SplashActivity extends BaseActivity {
                     }
                 });
     }
+
+
+
 
     @Override
     protected void onDestroy() {
