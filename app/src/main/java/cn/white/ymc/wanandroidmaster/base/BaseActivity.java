@@ -3,7 +3,6 @@ package cn.white.ymc.wanandroidmaster.base;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,9 +13,8 @@ import android.view.WindowManager;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.white.ymc.wanandroidmaster.R;
-import cn.white.ymc.wanandroidmaster.base.contract.BaseView;
-import cn.white.ymc.wanandroidmaster.util.davik.AppDavikActivityUtil;
 import cn.white.ymc.wanandroidmaster.util.Log.AppLogMessageUtil;
+import cn.white.ymc.wanandroidmaster.util.davik.AppDavikActivityUtil;
 import cn.white.ymc.wanandroidmaster.util.network.NetUtil;
 import cn.white.ymc.wanandroidmaster.util.network.NetWorkBroadcastReceiver;
 
