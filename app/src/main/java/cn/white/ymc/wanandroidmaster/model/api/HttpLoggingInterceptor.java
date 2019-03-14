@@ -45,7 +45,7 @@ public class HttpLoggingInterceptor implements Interceptor {
             body = buffer.readString(charset);
         }
 
-        AppLogMessageUtil.logE("jxy",
+        AppLogMessageUtil.logE("ymc",
                 "发送请求: method：" + request.method()
                         + "\nurl：" + request.url()
                         + "\n请求头：" + request.headers()
@@ -76,7 +76,7 @@ public class HttpLoggingInterceptor implements Interceptor {
         rBody = buffer.clone().readString(charset);
 //        }
 
-        AppLogMessageUtil.logE("jxy",
+        AppLogMessageUtil.logE("ymc",
                 "收到响应: code:" + response.code()
                 + "\n请求url："+response.request().url()
                 + "\n请求body：" + body
