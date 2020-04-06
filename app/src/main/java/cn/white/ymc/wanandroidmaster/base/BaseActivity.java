@@ -1,5 +1,8 @@
 package cn.white.ymc.wanandroidmaster.base;
 
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +16,7 @@ import android.view.WindowManager;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.white.ymc.wanandroidmaster.R;
+import cn.white.ymc.wanandroidmaster.util.Calendarutil;
 import cn.white.ymc.wanandroidmaster.util.Log.AppLogMessageUtil;
 import cn.white.ymc.wanandroidmaster.util.davik.AppDavikActivityUtil;
 import cn.white.ymc.wanandroidmaster.util.network.NetUtil;
@@ -69,6 +73,14 @@ public abstract class BaseActivity extends AppCompatActivity implements NetWorkB
                 ViewCompat.setFitsSystemWindows(mChildView, false);
             }
         }
+        if(Calendarutil.isQingMing()){
+            Paint paint = new Paint();
+            ColorMatrix cm = new ColorMatrix();
+            cm.setSaturation(0);
+            paint.setColorFilter(new ColorMatrixColorFilter(cm));
+            getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE, paint);
+        }
+
     }
 
     protected abstract int getLayoutId();
