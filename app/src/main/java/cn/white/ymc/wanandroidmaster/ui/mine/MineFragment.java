@@ -67,15 +67,16 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initUI() {
         super.initUI();
-        Glide.with(context).load(R.drawable.icon_head).into(imageHead);
     }
 
     @Override
     protected void initData() {
-        haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN, false);
-        userName = (String) SharedPreferenceUtil.get(context, ConstantUtil.USERNAME, ConstantUtil.USERNAME);
-        tvUsername.setText(haslogin ? userName : getString(R.string.click_head_login));
-        imageHead.setEnabled(!haslogin);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initDataView();
     }
 
     @OnClick({R.id.view_collect, R.id.view_todo, R.id.view_about, R.id.image_head, R.id.tv_logout})
@@ -96,12 +97,20 @@ public class MineFragment extends BaseFragment {
             case R.id.tv_logout:
                 ToastUtil.show(activity, getString(R.string.logout_ok));
                 SharedPreferenceUtil.clear(activity);
-                initData();
                 CookiesManager.clearAllCookies();
+                initDataView();
                 break;
             default:
                 break;
         }
+    }
+
+    protected void initDataView() {
+        Glide.with(context).load(R.drawable.icon_head).into(imageHead);
+        haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN, false);
+        userName = (String) SharedPreferenceUtil.get(context, ConstantUtil.USERNAME, ConstantUtil.USERNAME);
+        tvUsername.setText(haslogin ? userName : getString(R.string.click_head_login));
+        imageHead.setEnabled(!haslogin);
     }
 
 }

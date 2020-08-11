@@ -7,6 +7,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
 import cn.white.ymc.wanandroidmaster.model.ApiStore;
 import cn.white.ymc.wanandroidmaster.model.ApiService;
 import cn.white.ymc.wanandroidmaster.util.ConstantUtil;
+import cn.white.ymc.wanandroidmaster.util.SharedPreferenceUtil;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -31,7 +32,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
     }
 
     @Override
-    public void login(String name, String password) {
+    public void login(final String name, final String password) {
         ApiStore.createApi(ApiService.class)
                 .login(name,password)
                 .subscribeOn(Schedulers.io())
@@ -57,6 +58,9 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                     @Override
                     public void onNext(BaseResp<UserInfo> baseResp) {
                         if (baseResp.getErrorCode() == ConstantUtil.REQUEST_SUCCESS) {
+                            SharedPreferenceUtil.put(ConstantUtil.USERNAME, name);
+                            SharedPreferenceUtil.put(ConstantUtil.PASSWORD, password);
+                            SharedPreferenceUtil.put(ConstantUtil.ISLOGIN, true);
                             view.loginOk(baseResp.getData());
                         } else if (baseResp.getErrorCode() == ConstantUtil.REQUEST_ERROR) {
                             view.loginErr(baseResp.getErrorMsg());

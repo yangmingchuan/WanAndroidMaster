@@ -225,7 +225,7 @@ public class HomeActivity extends BaseActivity {
             mExitTime = System.currentTimeMillis();
             return false;
         } else {
-            SharedPreferenceUtil.put(activity, ConstantUtil.ISLOGIN, ConstantUtil.FALSE);
+            SharedPreferenceUtil.put(ConstantUtil.ISLOGIN, ConstantUtil.FALSE);
             finish();
             return true;
         }
@@ -250,7 +250,6 @@ public class HomeActivity extends BaseActivity {
                 .onGranted(new Action() {
                     @Override
                     public void onAction(List<String> permissions) {
-                        ToastUtil.show(activity,"用户给权限啦");
                     }
                 })
                 .onDenied(new Action() {

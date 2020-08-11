@@ -122,7 +122,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_todo"
-                android:text="@string/my_todo"
+                android:text="@string/my_QAcommunity"
                 android:textSize="@dimen/sp_16"
                 android:textColor="@color/homepage_color" />
 

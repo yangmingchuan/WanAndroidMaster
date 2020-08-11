@@ -89,10 +89,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View{
     @Override
     public void loginOk(UserInfo userInfo) {
         ToastUtil.show(activity, getString(R.string.login_ok));
-        SharedPreferenceUtil.put(activity, ConstantUtil.USERNAME, userInfo.getUsername());
-        SharedPreferenceUtil.put(activity, ConstantUtil.PASSWORD, userInfo.getPassword());
-        SharedPreferenceUtil.put(activity, ConstantUtil.ISLOGIN, true);
-        JumpUtil.overlay(this, HomeActivity.class);
         finish();
     }
 

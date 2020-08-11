@@ -1,8 +1,8 @@
 package cn.white.ymc.wanandroidmaster.model.api;
 
-import android.util.Log;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +27,7 @@ import okio.BufferedSource;
  */
 
 public class HttpLoggingInterceptor implements Interceptor {
-    private final Charset UTF8 = Charset.forName("UTF-8");
+    private final Charset UTF8 = StandardCharsets.UTF_8;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
@@ -42,7 +42,9 @@ public class HttpLoggingInterceptor implements Interceptor {
             if (contentType != null) {
                 charset = contentType.charset(UTF8);
             }
-            body = buffer.readString(charset);
+            if(charset != null){
+                body = buffer.readString(charset);
+            }
         }
 
         AppLogMessageUtil.logE("ymc",
@@ -74,12 +76,11 @@ public class HttpLoggingInterceptor implements Interceptor {
             }
         }
         rBody = buffer.clone().readString(charset);
-//        }
 
         AppLogMessageUtil.logE("ymc",
                 "收到响应: code:" + response.code()
-                + "\n请求url："+response.request().url()
-                + "\n请求body：" + body
+                        + "\n请求url：" + response.request().url()
+                        + "\n请求body：" + body
                         + "\nResponse: " + rBody);
 
         return response;

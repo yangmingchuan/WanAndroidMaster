@@ -254,7 +254,7 @@ public class HomeFragment extends BaseFragment implements HomePageAdapter.OnItem
     @Override
     public void loginOk(UserInfo userInfo) {
         ToastUtil.show(activity, getString(R.string.auto_login_ok));
-        SharedPreferenceUtil.put(activity, ConstantUtil.ISLOGIN, true);
+        SharedPreferenceUtil.put(ConstantUtil.ISLOGIN, true);
     }
 
     /**

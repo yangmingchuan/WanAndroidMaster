@@ -36,7 +36,7 @@ public class SearechModel implements ISearechModelImpl{
                 sb.append(s).append(",");
             }
             sb.delete(sb.length() - 1, sb.length());
-            SharedPreferenceUtil.put(context, ConstantUtil.SEARCH_HISTORY, sb.toString().trim());
+            SharedPreferenceUtil.put(ConstantUtil.SEARCH_HISTORY, sb.toString().trim());
         }
     }
 
