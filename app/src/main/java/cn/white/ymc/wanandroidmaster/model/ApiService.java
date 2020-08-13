@@ -9,6 +9,7 @@ import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HotKeyBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HomePageArticleBean;
 import cn.white.ymc.wanandroidmaster.data.bean.HotBean;
+import cn.white.ymc.wanandroidmaster.data.bean.IntegralBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemBean;
 import cn.white.ymc.wanandroidmaster.data.bean.SystemDetailListBean;
 import cn.white.ymc.wanandroidmaster.data.bean.UserInfo;
@@ -139,4 +140,12 @@ public interface ApiService {
      */
     @GET("wxarticle/list/{id}/{page}/json")
     Observable<BaseResp<WxPublicListBean>> getWXDetailList(@Path("page") int page ,@Path("id")int id);
+
+
+    /**
+     * 获取个人积分
+     */
+    @GET("lg/coin/userinfo/json")
+    Observable<BaseResp<IntegralBean>> getUserIntegral();
+
 }

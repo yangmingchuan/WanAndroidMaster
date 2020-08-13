@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey">
@@ -14,42 +13,71 @@
         <!--头像-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="140dp"
             android:background="@drawable/shape_gradient">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/rl_head"
+                android:layout_width="@dimen/dp_85"
+                android:layout_height="@dimen/dp_85"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/white" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_head"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
+                    android:layout_centerInParent="true"
+                    android:src="@color/white_255" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/rl_head"
+                android:text="@string/click_head_login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
 
-                <RelativeLayout
-                    android:layout_width="@dimen/dp_85"
-                    android:layout_height="@dimen/dp_85">
+            <TextView
+                android:id="@+id/tv_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_username"
+                android:layout_toEndOf="@+id/rl_head"
+                android:text="未知"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_lv"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@color/white" />
+            <TextView
+                android:id="@+id/tv_coin_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_username"
+                android:layout_toEndOf="@+id/tv_rank"
+                android:text="未知"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_icon_jf"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/image_head"
-                        android:layout_width="@dimen/dp_80"
-                        android:layout_height="@dimen/dp_80"
-                        android:layout_centerInParent="true"
-                        android:src="@color/white_255" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/tv_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_15"
-                    android:text="@string/click_head_login"
-                    android:textSize="@dimen/sp_16"
-                    android:textColor="@color/white" />
-            </LinearLayout>
 
         </RelativeLayout>
 
@@ -59,8 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
             android:layout_marginTop="@dimen/dp_12"
-            android:padding="@dimen/dp_10"
-            android:background="@color/white_255">
+            android:background="@color/white_255"
+            android:padding="@dimen/dp_10">
 
             <ImageView
                 android:id="@+id/image_collect"
@@ -77,8 +105,8 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_collect"
                 android:text="@string/my_collect"
-                android:textSize="@dimen/sp_16"
-                android:textColor="@color/homepage_color" />
+                android:textColor="@color/homepage_color"
+                android:textSize="@dimen/sp_16" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -105,8 +133,8 @@
             android:id="@+id/view_todo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
-            android:padding="@dimen/dp_10"
-            android:background="@color/white_255">
+            android:background="@color/white_255"
+            android:padding="@dimen/dp_10">
 
             <ImageView
                 android:id="@+id/image_todo"
@@ -123,8 +151,8 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_todo"
                 android:text="@string/my_QAcommunity"
-                android:textSize="@dimen/sp_16"
-                android:textColor="@color/homepage_color" />
+                android:textColor="@color/homepage_color"
+                android:textSize="@dimen/sp_16" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -145,8 +173,8 @@
             android:id="@+id/view_about"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_46"
-            android:padding="@dimen/dp_10"
-            android:background="@color/white_255">
+            android:background="@color/white_255"
+            android:padding="@dimen/dp_10">
 
             <ImageView
                 android:id="@+id/image_about"
@@ -163,8 +191,8 @@
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_toEndOf="@+id/image_about"
                 android:text="@string/about_us"
-                android:textSize="@dimen/sp_16"
-                android:textColor="@color/homepage_color" />
+                android:textColor="@color/homepage_color"
+                android:textSize="@dimen/sp_16" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -175,18 +203,20 @@
                 app:srcCompat="@drawable/icon_arrow_right" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_logout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_37"
-            android:layout_marginEnd="@dimen/dp_80"
-            android:layout_marginStart="@dimen/dp_80"
-            android:layout_marginTop="@dimen/dp_80"
-            android:background="@drawable/drawable_shape_red"
-            android:gravity="center"
-            android:text="@string/logout"
-            android:textColor="@color/red"
-            android:textSize="@dimen/sp_16" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp_80"
+        android:layout_marginEnd="@dimen/dp_80"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/drawable_shape_red"
+        android:gravity="center"
+        android:text="@string/logout"
+        android:textColor="@color/red"
+        android:textSize="@dimen/sp_16" />
 
 </RelativeLayout>

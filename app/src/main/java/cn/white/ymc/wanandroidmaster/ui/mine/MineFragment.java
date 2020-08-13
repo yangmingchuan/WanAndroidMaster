@@ -7,10 +7,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.white.ymc.wanandroidmaster.R;
 import cn.white.ymc.wanandroidmaster.base.BaseFragment;
+import cn.white.ymc.wanandroidmaster.data.bean.DemoTitleBean;
+import cn.white.ymc.wanandroidmaster.data.bean.IntegralBean;
 import cn.white.ymc.wanandroidmaster.model.api.cookie.CookiesManager;
 import cn.white.ymc.wanandroidmaster.ui.login.LoginActivity;
 import cn.white.ymc.wanandroidmaster.ui.mine.minelist.AboutMeActivity;
@@ -31,7 +35,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @QQ:745612618
  */
 
-public class MineFragment extends BaseFragment {
+public class MineFragment extends BaseFragment implements MineContract.View {
 
     @BindView(R.id.image_head)
     CircleImageView imageHead;
@@ -51,9 +55,14 @@ public class MineFragment extends BaseFragment {
     RelativeLayout viewAbout;
     @BindView(R.id.tv_logout)
     TextView tvLogout;
+    @BindView(R.id.tv_rank)
+    TextView tvRank;
+    @BindView(R.id.tv_coin_count)
+    TextView tvCoinCount;
 
     private boolean haslogin;
     private String userName;
+    private MinePresenter minePresenter;
 
     public static MineFragment getInstance() {
         return new MineFragment();
@@ -71,6 +80,7 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        minePresenter = new MinePresenter(this);
     }
 
     @Override
@@ -106,6 +116,7 @@ public class MineFragment extends BaseFragment {
     }
 
     protected void initDataView() {
+        minePresenter.getUserIntegral();
         Glide.with(context).load(R.drawable.icon_head).into(imageHead);
         haslogin = (boolean) SharedPreferenceUtil.get(context, ConstantUtil.ISLOGIN, false);
         userName = (String) SharedPreferenceUtil.get(context, ConstantUtil.USERNAME, ConstantUtil.USERNAME);
@@ -113,4 +124,14 @@ public class MineFragment extends BaseFragment {
         imageHead.setEnabled(!haslogin);
     }
 
+    @Override
+    public void getIntegralResultOK(IntegralBean demoBeans) {
+        tvRank.setText(String.valueOf(demoBeans.getRank()));
+        tvCoinCount.setText(String.valueOf(demoBeans.getCoinCount()));
+    }
+
+    @Override
+    public void getIntegralResultErr(String info) {
+
+    }
 }
