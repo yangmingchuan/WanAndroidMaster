@@ -78,6 +78,20 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_16" />
 
+            <TextView
+                android:id="@+id/tv_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_username"
+                android:layout_toEndOf="@+id/tv_coin_count"
+                android:text="未知"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_ph"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
 
         </RelativeLayout>
 
@@ -212,7 +226,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/dp_80"
         android:layout_marginEnd="@dimen/dp_80"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/drawable_shape_red"
         android:gravity="center"
         android:text="@string/logout"

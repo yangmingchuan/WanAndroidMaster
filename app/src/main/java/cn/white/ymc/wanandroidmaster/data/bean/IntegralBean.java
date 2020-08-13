@@ -9,15 +9,18 @@ import java.io.Serializable;
  */
 public class IntegralBean implements Serializable {
 
+
     /**
-     * coinCount : 451
-     * rank : 7
-     * userId : 2
-     * username : x**oyang
+     * coinCount : 1209
+     * level : 13
+     * rank : 742
+     * userId : 8822
+     * username : 7**612618
      */
 
     private int coinCount;
-    private int rank;
+    private int level;
+    private String rank;
     private int userId;
     private String username;
 
@@ -29,11 +32,19 @@ public class IntegralBean implements Serializable {
         this.coinCount = coinCount;
     }
 
-    public int getRank() {
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getRank() {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(String rank) {
         this.rank = rank;
     }
 

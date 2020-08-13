@@ -59,6 +59,8 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     TextView tvRank;
     @BindView(R.id.tv_coin_count)
     TextView tvCoinCount;
+    @BindView(R.id.tv_ph)
+    TextView tvPh;
 
     private boolean haslogin;
     private String userName;
@@ -126,8 +128,9 @@ public class MineFragment extends BaseFragment implements MineContract.View {
 
     @Override
     public void getIntegralResultOK(IntegralBean demoBeans) {
-        tvRank.setText(String.valueOf(demoBeans.getRank()));
+        tvRank.setText(String.valueOf(demoBeans.getLevel()));
         tvCoinCount.setText(String.valueOf(demoBeans.getCoinCount()));
+        tvPh.setText(String.valueOf(demoBeans.getRank()));
     }
 
     @Override
