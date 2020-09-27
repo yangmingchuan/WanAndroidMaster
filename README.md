@@ -3,21 +3,22 @@
 
 该项目主要学习 mvp 和 rx+ retrofit 一套
 
-## 下载地址
-http://april.aprilblank.com/download
 
 
 ## 版本迭代
+
+>v1.1.2
+添加清明节灰白背景，修复登录sp紊乱等bug
+
 >v1.1.1
 添加walle 多渠道打包
-
 
 
 > v1.1.0
 > 添加微信公众号模块
 
 ## 前言
-> 拉一波 浏览量 本人博客：https://blog.csdn.net/qq_27948659
+> 拉一波 浏览量 [本人博客](https://blog.csdn.net/qq_27948659)
 
 
 1. 代码尽力遵循了阿里巴巴Java开发规范和阿里巴巴Android开发规范，并有良好的注释。
@@ -31,11 +32,11 @@ http://april.aprilblank.com/download
 ## 感谢
 
 
-1. 弘扬大佬提供的API 接口     http://www.wanandroid.com/blog/show/2
-2. 部分图标 资源             http://www.iconfont.cn/
-3. tab 和 viewpager 的集合    https://github.com/H07000223/FlycoTabLayout
-4. SmartRefreshLayout       https://github.com/scwang90/SmartRefreshLayout
-5. 代码布局借鉴              https://github.com/sheajin/WanAndroid
+1. [弘扬大佬提供的API 接口](http://www.wanandroid.com/blog/show/2)
+2. [部分图标 资源](http://www.iconfont.cn/)           
+3. [tab 和 viewpager 的集合](https://github.com/H07000223/FlycoTabLayout)    
+4. [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)       
+5. [代码布局借鉴 ](https://github.com/sheajin/WanAndroid)             
 
 
 
