@@ -14,7 +14,7 @@ http://april.aprilblank.com/download
 
 
 > v1.1.0
-> 1.添加微信公众号模块
+> 添加微信公众号模块
 
 ## 前言
 > 拉一波 浏览量 本人博客：https://blog.csdn.net/qq_27948659
